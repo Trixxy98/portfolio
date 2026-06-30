@@ -10,6 +10,7 @@ import StarBackground from './components/StarBackground'
 import LoadingScreen from './components/LoadingScreen'
 import ScrollProgress from './components/ScrollProgress'
 import CustomCursor from './components/CustomCursor'
+import NoiseOverlay from './components/NoiseOverlay'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
   return (
     <>
       <CustomCursor />
+      <NoiseOverlay />
       {!loaderDone && <LoadingScreen onComplete={() => setLoaderDone(true)} />}
       <ScrollProgress />
       <main className="bg-[#0b0b0b] text-white font-sans relative">

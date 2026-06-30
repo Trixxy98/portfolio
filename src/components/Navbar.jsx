@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import MagneticButton from './MagneticButton'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -32,12 +33,11 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           <a href="#work" className="text-sm text-neutral-400 hover:text-white transition-colors">Work</a>
           <a href="#about" className="text-sm text-neutral-400 hover:text-white transition-colors">About</a>
-          <a
+          <MagneticButton
             href="mailto:harithfakrullah@gmail.com"
             className="text-sm px-4 py-2 border border-neutral-600 rounded-full hover:bg-white hover:text-black hover:border-white transition-all duration-200"
-          >
-            Get in touch
-          </a>
+            >
+            Get in touch</MagneticButton>
         </div>
 
         {/* Mobile hamburger */}

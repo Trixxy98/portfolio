@@ -2,6 +2,8 @@ import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
+import MagneticButton from './MagneticButton'
+import NoiseOverlay from './NoiseOverlay'
 
 const words1 = ['Software', 'Developer', 'based', 'in']
 const words2 = ['Building', 'clean,', 'performant', 'web', 'experiences.']
@@ -30,6 +32,8 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex flex-col pt-20 px-8 max-w-7xl mx-auto">
+      {/* Glow */}
+<div className="absolute top-1/4 left-1/3 w-[500px] h-[350px] rounded-full bg-violet-950/30 blur-[130px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
 
       {/* Heading */}
       <div className="flex-1 flex items-center">
@@ -72,6 +76,25 @@ export default function Hero() {
             </div>
           ))}
         </motion.div>
+
+        <motion.div
+  initial={{ opacity: 0, y: 10 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 1.2 }}
+>
+  <MagneticButton
+    href="/resumeharithlatest.pdf"
+    download="Harith_Fakrullah_Resume.pdf"
+    className="inline-flex items-center gap-2 text-xs text-neutral-400 border border-neutral-700 px-4 py-2 rounded-full hover:border-neutral-400 hover:text-white transition-all duration-200"
+  >
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    Download Resume
+  </MagneticButton>
+</motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
