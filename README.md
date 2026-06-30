@@ -2,7 +2,7 @@
 
 Personal portfolio website built with **React**, **Tailwind CSS**, **GSAP**, and **Framer Motion**.
 
-Live at: https://portfolio-trixxy98-trixxy98s-projects.vercel.app/
+Live at: https://portfolio-trixxy98s-projects.vercel.app/
 
 ---
 
