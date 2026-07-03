@@ -8,7 +8,7 @@ export const projects = [
         'Full-stack web app for AI-powered resume analysis with ATS scoring, content quality, skills evaluation, and job-description matching.',
       tech: ['React', 'TypeScript', 'Claude AI', 'Tailwind CSS'],
       github: 'https://github.com/Trixxy98/AI-resumeAnalyzer',
-      live: null,
+      live: 'https://ai-resumeanalyzer-production-195b.up.railway.app/',
       image: '/resumai.png',
       color: '#1a1a1a',
     },
