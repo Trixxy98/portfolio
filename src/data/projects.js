@@ -47,7 +47,7 @@ export const projects = [
         'Full-stack task management app with Kanban board, calendar view, team collaboration, priority management and notifications.',
       tech: ['React', 'Node.js', 'Express', 'MySQL'],
       github: 'https://github.com/Trixxy98/TaskFlow-API',
-      live: null,
+      live: 'https://taskflow-api-production-66fc.up.railway.app',
       image: '/taskflow.png',
       color: '#181818',
     },
