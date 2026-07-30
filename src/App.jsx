@@ -12,6 +12,7 @@ import ScrollProgress from './components/ScrollProgress'
 import CustomCursor from './components/CustomCursor'
 import NoiseOverlay from './components/NoiseOverlay'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
+import ParticleBackground from './components/ParticleBackground'
 
 function App() {
   const [loaderDone, setLoaderDone] = useState(false)
@@ -25,7 +26,7 @@ function App() {
       {!loaderDone && <LoadingScreen onComplete={() => setLoaderDone(true)} />}
       <ScrollProgress />
       <main className="bg-[#0b0b0b] text-white font-sans relative">
-        <StarBackground />
+        <ParticleBackground />
         <Navbar />
         <Hero />
         <SelectedWork />

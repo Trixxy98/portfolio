@@ -1,6 +1,32 @@
 export const projects = [
     {
       id: 1,
+      title: 'AI Interview Simulator',
+      subtitle: 'AI-Powered Mock Interview Platform',
+      year: '2026',
+      description:
+        'Full-stack mock interview platform with AI-generated questions, real-time webcam analysis via MediaPipe FaceMesh, speech-to-text answers, JWT auth, and detailed downloadable PDF reports.',
+      tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'OpenAI'],
+      github: 'https://github.com/Trixxy98/AI-Interview-Simulator',
+      live: null,
+      image: '/AI-IV.png',
+      color: '#121212',
+    },
+    {
+      id: 2,
+      title: 'UIverse',
+      subtitle: 'Multi-Style UI Landing Page',
+      year: '2026',
+      description:
+        'Interactive landing page that switches between 9 iconic UI design styles in real-time — Glassmorphism, Brutalism, Neomorphism, Bento Grid, Claymorphism, and more.',
+      tech: ['React', 'Tailwind CSS', 'Vite'],
+      github: 'https://github.com/Trixxy98/UI-styles-landing',
+      live: 'https://uiverse-livid.vercel.app/',
+      image: '/uiverse.png',
+      color: '#151515',
+    },
+    {
+      id: 3,
       title: 'ResumAI',
       subtitle: 'AI-Powered Resume Analyzer',
       year: '2025',
@@ -13,7 +39,7 @@ export const projects = [
       color: '#1a1a1a',
     },
     {
-      id: 2,
+      id: 4,
       title: 'iTowing Mobile',
       subtitle: 'Towing Company Finder App',
       year: '2024',
@@ -26,7 +52,7 @@ export const projects = [
       color: '#161616',
     },
     {
-      id: 3,
+      id: 5,
       title: 'LokalFrag Static',
       subtitle: 'Front-End Web Project',
       year: '2024',
@@ -39,7 +65,7 @@ export const projects = [
       color: '#131313',
     },
     {
-      id: 4,
+      id: 6,
       title: 'TaskFlow',
       subtitle: 'Task Management Application',
       year: '2024',

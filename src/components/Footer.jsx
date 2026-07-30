@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import ScrambleText from './ScrambleText'
 
 function LiveClock() {
   const [time, setTime] = useState('')
@@ -29,9 +30,11 @@ export default function Footer() {
         transition={{ duration: 0.6 }}
       >
         {/* Label */}
-        <p className="text-[10px] uppercase tracking-widest text-neutral-500 mb-4">
-          Let's work together
-        </p>
+        <ScrambleText
+            text="Let's work together"
+            as="p"
+            className="text-[10px] uppercase tracking-widest text-neutral-500 mb-4 cursor-default"
+          />
 
         {/* Big email */}
         <a

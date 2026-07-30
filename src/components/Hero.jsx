@@ -3,7 +3,6 @@ import { useGSAP } from '@gsap/react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import MagneticButton from './MagneticButton'
-import NoiseOverlay from './NoiseOverlay'
 
 const words1 = ['Software', 'Developer', 'based', 'in']
 const words2 = ['Building', 'clean,', 'performant', 'web', 'experiences.']
