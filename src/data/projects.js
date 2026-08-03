@@ -5,8 +5,8 @@ export const projects = [
       subtitle: 'AI-Powered Mock Interview Platform',
       year: '2026',
       description:
-        'Full-stack mock interview platform with AI-generated questions, real-time webcam analysis via MediaPipe FaceMesh, speech-to-text answers, JWT auth, and detailed downloadable PDF reports.',
-      tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'OpenAI'],
+        'Full-stack mock interview platform using OpenAI & Groq LLMs for dynamic question generation and AI scoring feedback. Features real-time webcam analysis via MediaPipe FaceMesh, speech-to-text, JWT + Redis auth, and downloadable PDF reports.',
+      tech: ['OpenAI', 'Groq LLM', 'MediaPipe', 'React', 'Node.js', 'MongoDB', 'Redis'],
       github: 'https://github.com/Trixxy98/AI-Interview-Simulator',
       live: null,
       image: '/AI-IV.png',
@@ -31,8 +31,8 @@ export const projects = [
       subtitle: 'AI-Powered Resume Analyzer',
       year: '2025',
       description:
-        'Full-stack web app for AI-powered resume analysis with ATS scoring, content quality, skills evaluation, and job-description matching.',
-      tech: ['React', 'TypeScript', 'Claude AI', 'Tailwind CSS'],
+        'Full-stack resume analyzer powered by Claude AI (via Puter SDK) for structured LLM feedback. Features ATS scoring, JD keyword matching, resume versioning with score deltas, AI rewrite assistant per section, and PDF export.',
+      tech: ['Claude AI', 'Puter SDK', 'LLM', 'React', 'TypeScript', 'PostgreSQL'],
       github: 'https://github.com/Trixxy98/AI-resumeAnalyzer',
       live: 'https://ai-resumeanalyzer-production-195b.up.railway.app/',
       image: '/resumai.png',

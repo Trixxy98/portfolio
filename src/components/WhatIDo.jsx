@@ -10,17 +10,27 @@ const services = [
   {
     num: '02',
     title: 'Full-Stack Development',
-    desc: 'End-to-end web applications with Node.js, Express, and databases like MySQL and PostgreSQL — REST APIs, authentication, and scalable architecture.',
+    desc: 'End-to-end web applications with Node.js and Express, backed by PostgreSQL, MySQL, or MongoDB — REST APIs, JWT authentication, and scalable architecture.',
   },
   {
     num: '03',
+    title: 'AI & LLM Integration',
+    desc: 'Shipping AI features with OpenAI, Groq, and Claude — prompt engineering, structured JSON output parsing, and on-device inference with MediaPipe for real-time analysis.',
+  },
+  {
+    num: '04',
+    title: 'DevOps & Deployment',
+    desc: 'Containerising apps with multi-stage Docker builds and Docker Compose, automating typecheck, test, and build pipelines with GitHub Actions, and shipping to Vercel and Railway.',
+  },
+  {
+    num: '05',
     title: 'UI/UX Implementation',
     desc: 'Translating designs into clean, accessible code with smooth animations using GSAP and Framer Motion for engaging user experiences.',
   },
   {
-    num: '04',
+    num: '06',
     title: 'API Integration',
-    desc: 'Integrating third-party and AI APIs with proper error handling, loading states, and data management using React Query and Axios.',
+    desc: 'Integrating third-party APIs with proper error handling, loading states, and data management using TanStack Query and Axios.',
   },
 ]
 

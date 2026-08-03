@@ -2,8 +2,11 @@ import { motion } from 'framer-motion'
 import {
   SiReact, SiTypescript, SiJavascript, SiTailwindcss,
   SiGreensock, SiNodedotjs, SiPhp,
-  SiMysql, SiPostgresql, SiFirebase, SiGit, SiFigma, SiNextdotjs
+  SiMysql, SiPostgresql, SiFirebase, SiGit, SiFigma, SiNextdotjs,
+  SiOpenai, SiClaude, SiMediapipe, SiMongodb, SiRedis,
+  SiDocker, SiGithubactions, SiVercel, SiRailway
 } from 'react-icons/si'
+import { TbSparkles, TbPrompt } from 'react-icons/tb'
 
 const categories = [
   {
@@ -25,11 +28,32 @@ const categories = [
     ],
   },
   {
+    label: 'AI / LLM',
+    skills: [
+      { name: 'OpenAI', icon: SiOpenai, color: '#ffffff' },
+      { name: 'Claude AI', icon: SiClaude, color: '#D97757' },
+      { name: 'Groq', icon: TbSparkles, color: '#F55036' },
+      { name: 'Prompt Engineering', icon: TbPrompt, color: '#A78BFA' },
+      { name: 'MediaPipe', icon: SiMediapipe, color: '#0097A7' },
+    ],
+  },
+  {
     label: 'Database',
     skills: [
       { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
       { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
+      { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+      { name: 'Redis', icon: SiRedis, color: '#FF4438' },
       { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
+    ],
+  },
+  {
+    label: 'DevOps / Cloud',
+    skills: [
+      { name: 'Docker', icon: SiDocker, color: '#2496ED' },
+      { name: 'GitHub Actions', icon: SiGithubactions, color: '#2088FF' },
+      { name: 'Vercel', icon: SiVercel, color: '#ffffff' },
+      { name: 'Railway', icon: SiRailway, color: '#B57BFF' },
     ],
   },
   {
@@ -54,7 +78,7 @@ export default function Skills() {
         Skills
       </motion.h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12">
         {categories.map((cat, ci) => (
           <motion.div
             key={cat.label}
