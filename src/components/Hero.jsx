@@ -82,7 +82,7 @@ export default function Hero() {
   transition={{ duration: 0.6, delay: 1.2 }}
 >
   <MagneticButton
-    href="/resumeharithlatest.pdf"
+    href="/Resume_Mohd_Harith_Fakrullah.pdf"
     download="Harith_Fakrullah_Resume.pdf"
     className="inline-flex items-center gap-2 text-xs text-neutral-400 border border-neutral-700 px-4 py-2 rounded-full hover:border-neutral-400 hover:text-white transition-all duration-200"
   >
