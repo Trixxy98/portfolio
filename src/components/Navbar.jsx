@@ -21,13 +21,15 @@ export default function Navbar() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-5 flex items-center justify-between transition-all duration-300 ${
+        className={`px-6 md:px-8 py-4 flex items-center justify-between transition-all duration-300 ${
           scrolled ? 'bg-[#0b0b0b]/90 backdrop-blur-sm border-b border-neutral-800' : 'bg-transparent'
         }`}
       >
         <div className="flex items-center gap-3">
           <span className="text-sm font-medium tracking-tight">Harith Fakrullah</span>
-          <span className="text-neutral-600 text-sm hidden md:block">| Software Developer</span>
+          <span className="text-neutral-600 text-[10px] font-mono tracking-widest hidden md:block">
+            SYS/OK
+          </span>
         </div>
 
         {/* Desktop nav */}

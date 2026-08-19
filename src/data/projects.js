@@ -53,15 +53,15 @@ export const projects = [
     },
     {
       id: 5,
-      title: 'LokalFrag Static',
-      subtitle: 'Front-End Web Project',
-      year: '2024',
+      title: 'Resitku',
+      subtitle: 'Receipt OCR Expense Tracker',
+      year: '2026',
       description:
-        'High-performance static website with modular React components, GSAP animations, and modern smooth UI interactions.',
-      tech: ['React', 'GSAP', 'Vite', 'JavaScript'],
-      github: 'https://github.com/Trixxy98/lokalfrag-static',
-      live: 'https://lokalfrag-static.vercel.app/',
-      image: '/lokalfrag.png',
+        'Personal expense tracker with receipt OCR — snap a photo, confirm vendor, amount and date, and it becomes a categorised transaction. Full AWS stack: ECS Fargate (API + worker), RDS Postgres, S3, SQS, and Textract, with JWT auth and a React dashboard.',
+      tech: ['React', 'Node.js', 'Prisma', 'PostgreSQL', 'AWS', 'Docker', 'Textract', 'Terraform'],
+      github: 'https://github.com/Trixxy98/Resitku',
+      live: null,
+      image: '/resitku.png',
       color: '#131313',
     },
     {

@@ -30,7 +30,7 @@ export default function Hero() {
   }, { scope: headingRef })
 
   return (
-    <section className="relative min-h-screen flex flex-col pt-20 px-8 max-w-7xl mx-auto">
+    <section className="relative min-h-screen flex flex-col pt-32 px-8 max-w-7xl mx-auto">
       {/* Glow */}
 <div className="absolute top-1/4 left-1/3 w-[500px] h-[350px] rounded-full bg-violet-950/30 blur-[130px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
 
@@ -68,7 +68,7 @@ export default function Hero() {
         >
           {infoItems.map((item) => (
             <div key={item.label}>
-              <p className="text-[10px] uppercase tracking-widest text-neutral-600 mb-1">
+              <p className="text-[10px] font-mono uppercase tracking-widest text-neutral-600 mb-1">
                 {item.label}
               </p>
               <p className="text-sm text-neutral-200">{item.value}</p>
@@ -99,7 +99,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.6 }}
-          className="w-full max-w-[280px] md:w-96 h-[300px] md:h-[500px] rounded-2xl overflow-hidden bg-neutral-800 shrink-0 relative"
+          className="w-full max-w-[280px] md:w-96 h-[300px] md:h-[500px] overflow-hidden bg-neutral-800 shrink-0 relative border border-neutral-800"
         >
           <img
             src="/photo.jpg"
@@ -107,8 +107,18 @@ export default function Hero() {
             className="w-full h-full object-cover object-top"
             onError={(e) => { e.target.style.display = 'none' }}
           />
-          <div className="absolute inset-0 flex items-center justify-center text-neutral-600 text-xs">
-           
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+          <div className="pointer-events-none absolute inset-0 opacity-[0.07] scanlines" />
+          <span className="pointer-events-none absolute top-3 left-3 w-3 h-3 border-l border-t border-violet-300/60" />
+          <span className="pointer-events-none absolute top-3 right-3 w-3 h-3 border-r border-t border-violet-300/60" />
+          <span className="pointer-events-none absolute bottom-3 left-3 w-3 h-3 border-l border-b border-violet-300/60" />
+          <span className="pointer-events-none absolute bottom-3 right-3 w-3 h-3 border-r border-b border-violet-300/60" />
+          <div className="pointer-events-none absolute top-3 left-0 right-0 flex items-center justify-between px-8 font-mono text-[9px] tracking-widest text-white/70">
+            <span>CAM 01</span>
+            <span className="flex items-center gap-1.5">
+              <span className="size-1.5 rounded-full bg-red-500 animate-pulse" />
+              REC
+            </span>
           </div>
         </motion.div>
       </div>

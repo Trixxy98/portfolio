@@ -31,11 +31,9 @@ function Stars({ count = 4000 }) {
   useFrame((state) => {
     const t = state.clock.elapsedTime
 
-    // Smooth lerp mouse influence
     smoothMouse.current.x += (mouse.current.x * 0.18 - smoothMouse.current.x) * 0.04
     smoothMouse.current.y += (mouse.current.y * 0.12 - smoothMouse.current.y) * 0.04
 
-    // Base slow drift + mouse parallax
     mesh.current.rotation.y = t * 0.012 + smoothMouse.current.x
     mesh.current.rotation.x = t * 0.006 + smoothMouse.current.y
   })

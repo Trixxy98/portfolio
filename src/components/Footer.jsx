@@ -49,7 +49,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-4">
             <span>Designed &amp; built by Harith Fakrullah</span>
             <span className="hidden md:block text-neutral-700">·</span>
-            <span>
+            <span className="font-mono tabular-nums">
               Rembau, <LiveClock />
             </span>
           </div>
