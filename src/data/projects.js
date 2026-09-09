@@ -1,5 +1,18 @@
 export const projects = [
     {
+      id: 7,
+      title: 'Quantify',
+      subtitle: 'Portfolio Analytics for Bursa & US Stocks',
+      year: '2026',
+      description:
+        'Personal portfolio analytics for Bursa Malaysia and US equities — enter BUY/SELL trades, rebuild holdings, and pull Yahoo Finance prices for P&L, risk metrics, and attribution in MYR or USD. Includes Black–Scholes implied-vol surfaces, event studies around Fed/CPI/earnings, and a React dashboard on Node, Prisma, and PostgreSQL.',
+      tech: ['React', 'Node.js', 'Prisma', 'PostgreSQL', 'TanStack Query', 'Recharts', 'Docker'],
+      github: 'https://github.com/Trixxy98/Quantify',
+      live: null,
+      image: '/quantify.png',
+      color: '#101010',
+    },
+    {
       id: 1,
       title: 'AI Interview Simulator',
       subtitle: 'AI-Powered Mock Interview Platform',
