@@ -22,7 +22,7 @@ export default function Navbar() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className={`px-6 md:px-8 py-4 flex items-center justify-between transition-all duration-300 ${
-          scrolled ? 'bg-[#0b0b0b]/90 backdrop-blur-sm border-b border-neutral-800' : 'bg-transparent'
+          scrolled ? 'bg-[#061018]/90 backdrop-blur-sm border-b border-neutral-800' : 'bg-transparent'
         }`}
       >
         <div className="flex items-center gap-3">
@@ -77,7 +77,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#0b0b0b] flex flex-col items-center justify-center gap-10"
+            className="fixed inset-0 z-40 bg-[#061018] flex flex-col items-center justify-center gap-10"
           >
             <a
               href="#work"

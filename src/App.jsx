@@ -11,7 +11,6 @@ import ScrollProgress from './components/ScrollProgress'
 import CustomCursor from './components/CustomCursor'
 import NoiseOverlay from './components/NoiseOverlay'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
-import ParticleBackground from './components/ParticleBackground'
 import TickerTape from './components/TickerTape'
 import TerminalHud from './components/TerminalHud'
 
@@ -27,8 +26,15 @@ function App() {
       {!loaderDone && <LoadingScreen onComplete={() => setLoaderDone(true)} />}
       <ScrollProgress />
       <TerminalHud />
-      <main className="bg-[#0b0b0b] text-white font-sans relative">
-        <ParticleBackground />
+      <main className="relative z-0 bg-[#061018] text-white font-sans">
+        <div
+          aria-hidden
+          className="pointer-events-none fixed inset-0 -z-10"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(20,48,68,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(20,48,68,0.55) 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
+          }}
+        />
         <header className="fixed top-0 left-0 right-0 z-50">
           <TickerTape />
           <Navbar />

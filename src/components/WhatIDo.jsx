@@ -10,17 +10,17 @@ const services = [
   {
     num: '02',
     title: 'Full-Stack Development',
-    desc: 'End-to-end web applications with Node.js and Express, backed by PostgreSQL, MySQL, or MongoDB — REST APIs, JWT authentication, and scalable architecture.',
+    desc: 'End-to-end apps with Node.js and Express, Python and FastAPI, or ASP.NET Core — REST APIs, JWT authentication, and PostgreSQL, MySQL, or MongoDB.',
   },
   {
     num: '03',
     title: 'AI & LLM Integration',
-    desc: 'Shipping AI features with OpenAI, Groq, and Claude — prompt engineering, structured JSON output parsing, and on-device inference with MediaPipe for real-time analysis.',
+    desc: 'Shipping AI features with OpenAI, Groq, Claude, and Gemini — structured output, function calling, and on-device inference with MediaPipe for real-time analysis.',
   },
   {
     num: '04',
     title: 'DevOps & Deployment',
-    desc: 'Containerising apps with multi-stage Docker builds and Docker Compose, automating typecheck, test, and build pipelines with GitHub Actions, and shipping to Vercel and Railway.',
+    desc: 'Containerising apps with Docker and Docker Compose, defining cloud infra with Terraform, and automating typecheck, test, and build pipelines with GitHub Actions.',
   },
   {
     num: '05',

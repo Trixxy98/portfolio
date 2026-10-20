@@ -1,12 +1,25 @@
 export const projects = [
     {
+      id: 8,
+      title: 'AegisOps',
+      subtitle: 'DevSecOps & AI Control Plane',
+      year: '2026',
+      description:
+        'Self-hosted control plane between CI and target environments. A policy engine decides whether an artifact may deploy, and an AI gateway rate-limits, redacts, or blocks model calls — both with a full audit trail. React and ASP.NET Core, with PostgreSQL, Redis, Docker, and scanners (Gitleaks, Trivy, Semgrep).',
+      tech: ['React', 'C#', '.NET', 'PostgreSQL', 'Redis', 'Docker'],
+      github: 'https://github.com/Trixxy98/AegisOps---DevSecOps-AI-Control-Plane',
+      live: null,
+      image: null,
+      color: '#101014',
+    },
+    {
       id: 7,
       title: 'Quantify',
       subtitle: 'Portfolio Analytics for Bursa & US Stocks',
       year: '2026',
       description:
-        'Personal portfolio analytics for Bursa Malaysia and US equities — enter BUY/SELL trades, rebuild holdings, and pull Yahoo Finance prices for P&L, risk metrics, and attribution in MYR or USD. Includes Black–Scholes implied-vol surfaces, event studies around Fed/CPI/earnings, and a React dashboard on Node, Prisma, and PostgreSQL.',
-      tech: ['React', 'Node.js', 'Prisma', 'PostgreSQL', 'TanStack Query', 'Recharts', 'Docker'],
+        'Portfolio analytics for Bursa Malaysia and US stocks. A BUY/SELL ledger rebuilds holdings from Yahoo Finance, then reports P&L, Sharpe, VaR, factor exposure, and implied-vol surfaces in MYR or USD. Python FastAPI and SQLAlchemy behind a React dashboard.',
+      tech: ['React', 'Python', 'FastAPI', 'PostgreSQL', 'Docker'],
       github: 'https://github.com/Trixxy98/Quantify',
       live: null,
       image: '/quantify.png',
@@ -80,11 +93,11 @@ export const projects = [
     {
       id: 6,
       title: 'TaskFlow',
-      subtitle: 'Task Management Application',
-      year: '2024',
+      subtitle: 'Task Management with AI & Billing',
+      year: '2026',
       description:
-        'Full-stack task management app with Kanban board, calendar view, team collaboration, priority management and notifications.',
-      tech: ['React', 'Node.js', 'Express', 'MySQL'],
+        'Personal task app with Free and Pro plans — Kanban, calendar, synced notes, and real-time notifications. Pro adds a Gemini chatbot, file attachments, analytics, and Stripe subscriptions, on React with an Express and MySQL API.',
+      tech: ['React', 'Node.js', 'Express', 'MySQL', 'Stripe', 'Gemini'],
       github: 'https://github.com/Trixxy98/TaskFlow-API',
       live: 'https://taskflow-api-production-66fc.up.railway.app',
       image: '/taskflow.png',

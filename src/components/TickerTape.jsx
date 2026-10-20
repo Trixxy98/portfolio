@@ -9,7 +9,7 @@ const BASE = [
   { sym: 'GSAP', px: 3.41, chg: -0.04 },
   { sym: 'REDIS', px: 7.62, chg: 0.15 },
   { sym: 'LLM', px: 41.08, chg: 1.12 },
-  { sym: 'NEXT', px: 15.33, chg: -0.21 },
+  { sym: 'PYTHON', px: 15.33, chg: -0.21 },
   { sym: 'GIT', px: 2.58, chg: 0.03 },
 ]
 
@@ -72,7 +72,7 @@ export default function TickerTape() {
   }, [])
 
   return (
-    <div className="h-7 flex items-stretch border-b border-neutral-800/80 bg-[#0b0b0b]/80 backdrop-blur-sm font-mono text-[10px] tracking-wide text-neutral-400">
+    <div className="h-7 flex items-stretch border-b border-neutral-800/80 bg-[#061018]/80 backdrop-blur-sm font-mono text-[10px] tracking-wide text-neutral-400">
       <div className="shrink-0 flex items-center gap-2 px-4 border-r border-neutral-800">
         <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
         <span className="text-emerald-400">LIVE</span>

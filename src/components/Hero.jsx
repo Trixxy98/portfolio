@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import MagneticButton from './MagneticButton'
+import BlueprintCar from './BlueprintCar'
 
 const words1 = ['Software', 'Developer', 'based', 'in']
 const words2 = ['Building', 'clean,', 'performant', 'web', 'experiences.']
@@ -30,7 +31,9 @@ export default function Hero() {
   }, { scope: headingRef })
 
   return (
-    <section className="relative min-h-screen flex flex-col pt-32 px-8 max-w-7xl mx-auto">
+    <section className="relative min-h-screen">
+      <BlueprintCar />
+      <div className="relative z-10 flex min-h-screen flex-col pt-32 px-8 max-w-7xl mx-auto">
       {/* Glow */}
 <div className="absolute top-1/4 left-1/3 w-[500px] h-[350px] rounded-full bg-violet-950/30 blur-[130px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
 
@@ -121,6 +124,7 @@ export default function Hero() {
             </span>
           </div>
         </motion.div>
+      </div>
       </div>
     </section>
   )

@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion'
 import {
   SiReact, SiTypescript, SiJavascript, SiTailwindcss,
-  SiGreensock, SiNodedotjs, SiPhp,
-  SiMysql, SiPostgresql, SiFirebase, SiGit, SiFigma, SiNextdotjs,
-  SiOpenai, SiClaude, SiMediapipe, SiMongodb, SiRedis,
-  SiDocker, SiGithubactions, SiVercel, SiRailway
+  SiGreensock, SiNodedotjs, SiExpress, SiPython, SiFastapi,
+  SiDotnet, SiPhp, SiScikitlearn, SiNumpy, SiPandas, SiScipy,
+  SiOpenai, SiClaude, SiGooglegemini, SiMediapipe,
+  SiPostgresql, SiMysql, SiPrisma, SiMongodb,
+  SiRedis, SiFirebase, SiDocker, SiGithubactions, SiTerraform,
+  SiCloudflare, SiRailway, SiVercel, SiGit, SiStripe,
 } from 'react-icons/si'
-import { TbSparkles, TbPrompt } from 'react-icons/tb'
+import { TbSparkles } from 'react-icons/tb'
 
 const categories = [
   {
@@ -17,50 +19,65 @@ const categories = [
       { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
       { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
       { name: 'GSAP', icon: SiGreensock, color: '#88CE02' },
-      { name: 'Next.js', icon: SiNextdotjs, color: '#ffffff' },
     ],
   },
   {
     label: 'Backend',
     skills: [
       { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
+      { name: 'Express', icon: SiExpress, color: '#ffffff' },
+      { name: 'Python', icon: SiPython, color: '#3776AB' },
+      { name: 'FastAPI', icon: SiFastapi, color: '#009688' },
+      { name: '.NET', icon: SiDotnet, color: '#512BD4' },
       { name: 'PHP', icon: SiPhp, color: '#777BB4' },
     ],
   },
   {
-    label: 'AI / LLM',
+    label: 'AI / ML',
     skills: [
+      { name: 'scikit-learn', icon: SiScikitlearn, color: '#F7931E' },
+      { name: 'NumPy', icon: SiNumpy, color: '#4DABCF' },
+      { name: 'pandas', icon: SiPandas, color: '#E70488' },
+      { name: 'SciPy', icon: SiScipy, color: '#8CAAE6' },
       { name: 'OpenAI', icon: SiOpenai, color: '#ffffff' },
-      { name: 'Claude AI', icon: SiClaude, color: '#D97757' },
+      { name: 'Claude', icon: SiClaude, color: '#D97757' },
+      { name: 'Gemini', icon: SiGooglegemini, color: '#8E75B2' },
       { name: 'Groq', icon: TbSparkles, color: '#F55036' },
-      { name: 'Prompt Engineering', icon: TbPrompt, color: '#A78BFA' },
       { name: 'MediaPipe', icon: SiMediapipe, color: '#0097A7' },
     ],
   },
   {
     label: 'Database',
     skills: [
-      { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
       { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
+      { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
+      { name: 'Prisma', icon: SiPrisma, color: '#5A67D8' },
       { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
       { name: 'Redis', icon: SiRedis, color: '#FF4438' },
       { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
     ],
   },
   {
-    label: 'DevOps / Cloud',
+    label: 'DevOps',
     skills: [
       { name: 'Docker', icon: SiDocker, color: '#2496ED' },
       { name: 'GitHub Actions', icon: SiGithubactions, color: '#2088FF' },
-      { name: 'Vercel', icon: SiVercel, color: '#ffffff' },
+      { name: 'Terraform', icon: SiTerraform, color: '#7B42BC' },
+    ],
+  },
+  {
+    label: 'Deploy',
+    skills: [
+      { name: 'Cloudflare', icon: SiCloudflare, color: '#F38020' },
       { name: 'Railway', icon: SiRailway, color: '#B57BFF' },
+      { name: 'Vercel', icon: SiVercel, color: '#ffffff' },
     ],
   },
   {
     label: 'Tools',
     skills: [
       { name: 'Git', icon: SiGit, color: '#F05032' },
-      { name: 'Figma', icon: SiFigma, color: '#F24E1E' },
+      { name: 'Stripe', icon: SiStripe, color: '#635BFF' },
     ],
   },
 ]
