@@ -2,7 +2,6 @@ import { useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import SelectedWork from './components/SelectedWork'
-import WhatIDo from './components/WhatIDo'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Footer from './components/Footer'
@@ -39,9 +38,8 @@ function App() {
           <TickerTape />
           <Navbar />
         </header>
-        <Hero />
+        <Hero introComplete={loaderDone} />
         <SelectedWork />
-        <WhatIDo />
         <Skills />
         <Experience />
         <Footer />

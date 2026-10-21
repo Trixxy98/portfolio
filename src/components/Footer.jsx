@@ -33,16 +33,25 @@ export default function Footer() {
         <ScrambleText
             text="Let's work together"
             as="p"
-            className="text-[10px] uppercase tracking-widest text-neutral-500 mb-4 cursor-default"
+            className="text-base uppercase tracking-widest text-neutral-400 mb-4 cursor-default md:text-lg"
           />
 
-        {/* Big email */}
-        <a
-          href="mailto:harithfakrullah@gmail.com"
-          className="block font-serif font-light text-[clamp(2.5rem,8vw,7rem)] leading-none tracking-tight text-white pb-6 hover:border-violet-400/60 hover:text-violet-200 transition-all duration-300"
-        >
-          harithfakrullah@gmail.com
-        </a>
+        {/* Email + portrait */}
+        <div className="flex items-center gap-4 pb-6 md:gap-8">
+          <a
+            href="mailto:harithfakrullah@gmail.com"
+            className="min-w-0 flex-1 break-all font-serif text-[clamp(1.25rem,5vw,2.4rem)] font-light leading-none tracking-tight text-white transition-colors duration-300 hover:text-violet-200 md:text-[clamp(2rem,5vw,5.5rem)]"
+          >
+            harithfakrullah@gmail.com
+          </a>
+          <div className="size-20 shrink-0 overflow-hidden rounded-full border border-[#9fd6ff]/70 bg-[#071828] p-1 shadow-[0_0_30px_rgba(126,200,255,0.15)] md:size-28 lg:size-36">
+            <img
+              src="/photo.jpg"
+              alt="Portrait of Harith Fakrullah"
+              className="size-full rounded-full object-cover object-center"
+            />
+          </div>
+        </div>
 
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mt-8 text-sm text-neutral-500">
@@ -80,6 +89,11 @@ export default function Footer() {
             </a>
           </div>
         </div>
+        <p className="mt-6 text-[10px] text-neutral-600">
+          3D car: <a href="https://sketchfab.com/3d-models/f1-2026-concept-polygon-model-ea3bde709b1e4dc9b0ec8557d106ed42" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-neutral-300">F1 2026 concept by Qvist_designs</a>
+          {' · '}<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-neutral-300">CC BY 4.0</a>
+          {' · '}Optimised and restyled for this site.
+        </p>
       </motion.div>
     </footer>
   )

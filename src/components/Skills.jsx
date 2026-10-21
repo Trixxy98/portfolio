@@ -90,7 +90,7 @@ export default function Skills() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-xs uppercase tracking-widest text-neutral-500 mb-12"
+        className="text-base uppercase tracking-widest text-neutral-400 mb-12 md:text-lg"
       >
         Skills
       </motion.h2>
@@ -104,7 +104,7 @@ export default function Skills() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: ci * 0.1 }}
           >
-            <p className="text-xs uppercase tracking-widest text-neutral-600 mb-5">
+            <p className="text-sm uppercase tracking-widest text-neutral-400 mb-5">
               {cat.label}
             </p>
             <ul className="flex flex-col gap-4">
@@ -124,7 +124,7 @@ export default function Skills() {
                       style={{ color: skill.color }}
                       className="shrink-0 opacity-80 group-hover:opacity-100 transition-opacity duration-200"
                     />
-                    <span className="text-base text-neutral-300 group-hover:text-white transition-colors duration-200">
+                    <span className="text-base text-neutral-300 group-hover:text-white transition-colors duration-200 md:text-lg">
                       {skill.name}
                     </span>
                   </motion.li>

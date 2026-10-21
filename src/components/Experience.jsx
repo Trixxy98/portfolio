@@ -32,7 +32,7 @@ export default function Experience() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-xs uppercase tracking-widest text-neutral-500 mb-12"
+        className="text-base uppercase tracking-widest text-neutral-400 mb-12 md:text-lg"
       >
         Experience
       </motion.h2>
@@ -48,13 +48,13 @@ export default function Experience() {
             className="flex flex-col md:flex-row gap-6 md:gap-16"
           >
             <div className="md:w-52 shrink-0">
-              <p className="text-sm font-semibold text-white">{exp.role}</p>
-              <p className="text-sm text-neutral-400 mt-1">{exp.company}</p>
-              <p className="text-xs text-neutral-600 mt-1">{exp.period}</p>
+              <p className="text-base font-semibold text-white">{exp.role}</p>
+              <p className="text-base text-neutral-400 mt-1">{exp.company}</p>
+              <p className="text-sm text-neutral-500 mt-1">{exp.period}</p>
             </div>
             <ul className="flex flex-col gap-3">
               {exp.points.map((point, j) => (
-                <li key={j} className="text-sm text-neutral-400 flex gap-3 leading-relaxed">
+                  <li key={j} className="text-base text-neutral-400 flex gap-3 leading-relaxed">
                   <span className="text-neutral-700 mt-0.5 shrink-0">—</span>
                   {point}
                 </li>

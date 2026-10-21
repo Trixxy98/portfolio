@@ -22,7 +22,7 @@ Live at: https://www.harithfakrullah.dev/
 
 ## Features
 
-- Animated loading/intro screen with counter
+- Animated loading/intro screen with F1 team logos
 - GSAP word-by-word hero text reveal
 - Canvas-based animated star particle background
 - Lenis smooth scroll integrated with GSAP ScrollTrigger
@@ -30,7 +30,7 @@ Live at: https://www.harithfakrullah.dev/
 - Scroll progress indicator
 - Responsive navbar with hamburger menu
 - Project cards with live/GitHub links
-- Accordion-style "What I Do" section
+- Horizontally browsable Selected Work with a 3D workspace preview
 - Tech skills with brand-color icons
 - Work experience timeline
 - Footer with live clock
@@ -89,3 +89,7 @@ src/
 - **Email** — harithfakrullah@gmail.com
 - **LinkedIn** — [linkedin.com/in/harithfakrullah](https://linkedin.com/in/harithfakrullah/)
 - **GitHub** — [github.com/Trixxy98](https://github.com/Trixxy98)
+
+## 3D Model Credit
+
+The hero uses [F1 2026 concept (polygon model)](https://sketchfab.com/3d-models/f1-2026-concept-polygon-model-ea3bde709b1e4dc9b0ec8557d106ed42) by [Qvist_designs](https://sketchfab.com/Qvist_Designs), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The original model was simplified for desktop and mobile web use, resized and rotated, and restyled as a blueprint hologram. The original file is not included.
