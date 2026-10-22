@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="back" x2="1" y2="1"><stop stop-color="#050a39"/><stop offset=".55" stop-color="#101a80"/><stop offset="1" stop-color="#010825"/></linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2=".4" y2="1"><stop stop-color="#0472ee"/><stop offset=".45" stop-color="#03e9ee"/><stop offset=".72" stop-color="#82d4c8"/><stop offset="1" stop-color="#083083"/></linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ff3b13"/><stop offset=".45" stop-color="#ff7314"/><stop offset=".75" stop-color="#ff2556"/><stop offset="1" stop-color="#850c9c"/></linearGradient>
+    <linearGradient id="pink" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#ff3ae7"/><stop offset=".55" stop-color="#d52de5"/><stop offset="1" stop-color="#512cd6"/></linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2=".3" y2="1"><stop stop-color="#e95cf3"/><stop offset=".5" stop-color="#923aef"/><stop offset="1" stop-color="#163ad9"/></linearGradient>
+  </defs>
+  <path fill="url(#back)" d="M0 0h1280v720H0z"/>
+  <path fill="#030927" d="M-25 420c160-90 282-55 398 26 122 80 222 83 333-3 178-136 339-131 599-9v292H-25z"/>
+  <path fill="url(#cyan)" d="M-90-35h250c-25 63-20 136 31 199 70 85 157 53 228 5l60 61c-145 120-289 119-381-10C31 127 41 25-90 97z"/>
+  <path fill="url(#orange)" d="M208-74h188c-46 104-5 159 94 156 108-4 144-87 87-170h208c93 143 5 314-170 324-206 13-330-100-289-259z"/>
+  <path fill="url(#purple)" d="M744-40h252c-94 99-62 177 40 179 91 2 130-64 101-149h174v189c-40 66-116 101-207 104-185 5-312-107-276-249z"/>
+  <path fill="url(#pink)" d="M-109 219c149-119 295-103 378 2 75 96 49 189-11 243-60 54-129 36-189 11 53-50 62-93 31-118-32-26-93-2-176 76z"/>
+  <path fill="url(#cyan)" d="M259 170c64-29 132-31 203-8l-65 123c-85-25-151-7-193 44l-147-42c54-55 120-99 202-117z"/>
+  <path fill="url(#orange)" d="M472 290c172-83 279-96 435-34l-102 132c-91-25-189-5-288 42l-126-46z"/>
+  <path fill="url(#purple)" d="M1018 288c179-102 326 26 322 178-3 100-85 169-186 174-104 5-172-49-171-124 1-67 57-96 114-79 40 12 38 53 7 75 37 13 64-14 67-51 6-90-95-117-155-73z"/>
+  <path fill="url(#cyan)" d="M328 391c88-42 204-43 282 14 57 42 68 91 83 145l-143 25c-14-73-47-97-109-85-37 7-39 51-10 98H274c-53-75-57-160 54-197z"/>
+  <path fill="url(#pink)" d="M-100 473c137-74 280-70 406-25 111 40 196 107 312 87l-98 112c-118 8-200-73-332-62-78 6-144 58-246 76z"/>
+  <path fill="url(#orange)" d="M559 542c71-39 139-64 241-57 102 6 205 65 345 56l-73 179H512c109-72 125-126 47-178z"/>
+  <path fill="url(#cyan)" d="M-70 602c148-46 254-34 347 12 97 49 214 56 308 5l-43 124H-70z"/>
+  <path fill="url(#purple)" d="M815 558c146-68 285-21 466 65v126H693c94-54 140-119 122-191z"/>
+</svg>

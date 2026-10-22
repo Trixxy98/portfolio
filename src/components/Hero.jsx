@@ -6,11 +6,9 @@ import MagneticButton from './MagneticButton'
 import BlueprintCar from './BlueprintCar'
 
 const headingLines = [
-  ['Software', 'Developer'],
+  ["I'm", 'Harith.'],
+  ['a', 'software', 'developer'],
   ['based', 'in', 'Malaysia.'],
-  ['Building', 'clean,'],
-  ['performant', 'web'],
-  ['experiences.'],
 ]
 
 const infoItems = [
@@ -46,13 +44,14 @@ export default function Hero({ introComplete = true }) {
       <div className="flex flex-1 items-start pt-4 md:pt-8">
         <h1
           ref={headingRef}
+          aria-label="I'm Harith, a software developer based in Malaysia. I build thoughtful web experiences."
           className="relative max-w-3xl font-serif font-light text-[clamp(2.6rem,9vw,4.5rem)] leading-[1.03] tracking-tight lg:text-[clamp(4rem,5vw,5.25rem)]"
         >
           {headingLines.map((line, index) => (
-            <span key={index} className="block">
+            <span key={index} className="block" aria-hidden="true">
               {line.map((word) => (
                 <span key={word} className="mr-[0.2em] inline-block overflow-hidden align-bottom">
-                  {word === 'Malaysia.' ? (
+                  {word === 'Harith.' ? (
                     <em className="word-inner block italic text-violet-300 underline decoration-violet-400/40 underline-offset-4">
                       {word}
                     </em>
