@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import SelectedWork from './components/SelectedWork'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
+import GithubContributions from './components/GithubContributions'
 import Footer from './components/Footer'
 import LoadingScreen from './components/LoadingScreen'
 import ScrollProgress from './components/ScrollProgress'
@@ -40,6 +41,7 @@ function App() {
         </header>
         <Hero introComplete={loaderDone} />
         <SelectedWork />
+        <GithubContributions />
         <Skills />
         <Experience />
         <Footer />

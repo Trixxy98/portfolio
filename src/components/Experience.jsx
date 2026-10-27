@@ -6,10 +6,12 @@ const experiences = [
     company: 'Datascience Sdn Bhd',
     period: 'Feb 2026 – Present',
     points: [
-      'Managed and resolved technical tickets (L1–L3) for Financial Management Systems used by UUM, Tourism Malaysia, and MAIPs with PHP, Corrad Framework and MySQL',
-      'Developed a Ticket Management System using React, Tailwind CSS, Axios, and React Query integrated with REST APIs',
-      'Performed database investigation and SQL query optimization to improve system performance',
-      'Implemented POS Digital Certification for approval workflows to enhance security and compliance',
+      'Managed and resolved technical tickets (L1–L3) for Financial Management Systems used by Universiti Utara Malaysia, Tourism Malaysia, and Majlis Agama Islam dan Adat Istiadat Melayu Perlis (MAIPs).',
+      'Debugged and resolved issues across frontend, backend, and database layers in production environments (PHP, JavaScript, MySQL, Dbeaver).',
+      'Collaborated with a development team to design and develop an internal Ticket Management System, contributed to both frontend and backend development using React, JavaScript, Tailwind CSS, Axios, React Query, and Node.js, integrated with REST APIs.',
+      'Performed database investigation and SQL query optimization to improve system performance.',
+      'Implemented POS Digital Certification for approval workflows to enhance security and compliance.',
+      'Contributed to the development and implementation of change requests for the addition of SKBBK functionality, including system enhancements, API integration, and updates to existing workflows.',
     ],
   },
   {
@@ -17,9 +19,11 @@ const experiences = [
     company: 'SY Trisilco Sdn Bhd',
     period: 'Mar 2025 – Jan 2026',
     points: [
-      'IP patching and updating microwave links network configuration for YTL Communication (YES)',
-      'Installed and configured single IDU IP10 Ceragon for new fiber sites',
-      'Maintained Excel macros and contributed to internal automation systems',
+      'Performed IP patching and updated microwave link network configurations for YTL Communications (YES).',
+      'Upgraded existing microwave links by migrating connections from microwave to fiber infrastructure.',
+      'Installed and configured Ceragon IP-10 IDUs, including IP address configuration, for new fiber sites.',
+      'Maintained Excel macros and contributed to the development of internal automation systems using Power BI.',
+      'Assisted with microwave backhaul operations and supported the decommissioning of legacy microwave links.',
     ],
   },
 ]
