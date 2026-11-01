@@ -26,14 +26,10 @@ function App() {
       {!loaderDone && <LoadingScreen onComplete={() => setLoaderDone(true)} />}
       <ScrollProgress />
       <TerminalHud />
-      <main className="relative z-0 bg-[#061018] text-white font-sans">
+      <main className="relative z-0 bg-[#101820] text-[#eee9df] font-sans">
         <div
           aria-hidden
-          className="pointer-events-none fixed inset-0 -z-10"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(20,48,68,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(20,48,68,0.55) 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
-          }}
+          className="pointer-events-none fixed inset-0 -z-10 bg-[#101820]"
         />
         <header className="fixed top-0 left-0 right-0 z-50">
           <TickerTape />

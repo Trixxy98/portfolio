@@ -24,7 +24,7 @@ export default function TerminalHud() {
   }, [])
 
   return (
-    <div className="pointer-events-none hidden md:block fixed inset-0 z-40 font-mono text-[10px] tracking-widest text-neutral-600">
+    <div className="pointer-events-none hidden md:block fixed inset-0 z-40 font-mono text-[10px] tracking-widest text-[#aebbc0]">
       <span className="absolute top-28 left-4">N {pos.y}</span>
       <span className="absolute bottom-4 left-4">HF.SYS / OK</span>
       <span className="absolute bottom-4 right-4">E {pos.x}</span>

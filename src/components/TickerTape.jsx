@@ -29,9 +29,9 @@ function Quotes({ quotes }) {
         const up = q.chg >= 0
         return (
           <span key={q.sym} className="flex items-center gap-2.5 shrink-0">
-            <span className="text-neutral-300">{q.sym}</span>
-            <span className="text-neutral-500 tabular-nums">{formatPx(q.px)}</span>
-            <span className={`tabular-nums ${up ? 'text-emerald-400' : 'text-red-400'}`}>
+            <span className="text-[#c1c9c8]">{q.sym}</span>
+            <span className="text-[#aebbc0] tabular-nums">{formatPx(q.px)}</span>
+            <span className={`tabular-nums ${up ? 'text-emerald-300' : 'text-red-300'}`}>
               {formatChg(q.chg)}
             </span>
           </span>
@@ -72,10 +72,10 @@ export default function TickerTape() {
   }, [])
 
   return (
-    <div className="h-7 flex items-stretch border-b border-neutral-800/80 bg-[#061018]/80 backdrop-blur-sm font-mono text-[10px] tracking-wide text-neutral-400">
-      <div className="shrink-0 flex items-center gap-2 px-4 border-r border-neutral-800">
+    <div className="h-7 flex items-stretch border-b border-white/10 bg-[#101820]/95 backdrop-blur-sm font-mono text-[10px] tracking-wide text-[#aebbc0]">
+      <div className="shrink-0 flex items-center gap-2 px-4 border-r border-white/10">
         <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-        <span className="text-emerald-400">LIVE</span>
+        <span className="text-emerald-300">LIVE</span>
       </div>
 
       <div className="relative flex-1 overflow-hidden">
@@ -85,9 +85,9 @@ export default function TickerTape() {
         </div>
       </div>
 
-      <div className="shrink-0 hidden sm:flex items-center gap-3 px-4 border-l border-neutral-800 text-neutral-500">
+      <div className="shrink-0 hidden sm:flex items-center gap-3 px-4 border-l border-white/10 text-[#aebbc0]">
         <span>MYT</span>
-        <span className="text-neutral-300 tabular-nums">{clock}</span>
+        <span className="text-[#eee9df] tabular-nums">{clock}</span>
       </div>
     </div>
   )

@@ -5,8 +5,8 @@ import * as THREE from 'three'
 
 const LOOK = new THREE.Vector3(0.2, -0.08, 0)
 const CAMERA_AIM = new THREE.Vector3()
-const LINE = '#79bfff'
-const FILL = '#0c304a'
+const LINE = '#9fbeca'
+const FILL = '#29404a'
 const REAL_HOLD = 0.8
 const TRANSITION_DURATION = 2.4
 
@@ -168,7 +168,7 @@ function MeasurementGuides() {
 
   return (
     <lineSegments geometry={geometry} position={[LOOK.x, 0, 0]}>
-      <lineBasicMaterial color="#3986bb" transparent opacity={0.3} depthWrite={false} />
+      <lineBasicMaterial color="#9fbeca" transparent opacity={0.3} depthWrite={false} />
     </lineSegments>
   )
 }
@@ -184,7 +184,7 @@ function Scan({ active }) {
     <mesh ref={ref} position={[0, 0.15, 0]}>
       <planeGeometry args={[2.3, 0.045]} />
       <meshBasicMaterial
-        color="#7ec8ff"
+        color="#9fbeca"
         transparent
         opacity={0.09}
         depthWrite={false}
@@ -238,11 +238,11 @@ function Rig({ pointer, staticMode, isSmallScreen, onLabel }) {
 function Scene({ pointer, staticMode, isSmallScreen, introComplete, onLabel }) {
   return (
     <>
-      <fog attach="fog" args={['#061018', 12, 22]} />
+      <fog attach="fog" args={['#101820', 12, 22]} />
       <ambientLight intensity={1.4} />
       <directionalLight position={[3, 6, 5]} intensity={2.2} color="#d6e9ff" />
       <directionalLight position={[-3, 2, -4]} intensity={0.8} color="#5a9fd3" />
-      <gridHelper args={[22, 44, '#153850', '#0b2231']} position={[LOOK.x, -0.63, 0]} />
+      <gridHelper args={[22, 44, '#38505b', '#263943']} position={[LOOK.x, -0.63, 0]} />
       {!isSmallScreen && <MeasurementGuides />}
       <Suspense fallback={null}>
         <group position={LOOK.toArray()} scale={isSmallScreen ? 0.34 : 0.6}>
@@ -280,14 +280,14 @@ export default function BlueprintCar({ introComplete = true }) {
         frameloop={staticMode ? 'demand' : 'always'}
         style={{ width: '100%', height: '100%' }}
         onCreated={({ gl, camera }) => {
-          gl.setClearColor(0x061018, 1)
+          gl.setClearColor(0x101820, 1)
           camera.lookAt(LOOK)
         }}
       >
         <Scene pointer={pointer} staticMode={staticMode} isSmallScreen={isSmallScreen} introComplete={introComplete} onLabel={setLabel} />
       </Canvas>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,rgba(6,16,24,0.78)_0%,transparent_52%)]" />
-      <p className="absolute top-28 right-8 font-mono text-[10px] tracking-[0.28em] text-[#9fd6ff]/75">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,rgba(16,24,32,0.72)_0%,transparent_58%)]" />
+      <p className="absolute top-28 right-8 font-mono text-[10px] tracking-[0.28em] text-[#9fbeca]">
         {label}
       </p>
     </div>

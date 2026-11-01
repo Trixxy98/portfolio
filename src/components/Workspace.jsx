@@ -533,7 +533,7 @@ export default function WorkspaceVisual() {
   }, [])
 
   return (
-    <div ref={visualRef} className="relative h-[280px] overflow-hidden bg-[radial-gradient(ellipse_at_center,rgba(32,39,50,0.48),transparent_72%)] sm:h-[320px] md:h-[340px] lg:h-[380px]">
+    <div ref={visualRef} className="relative h-[280px] overflow-hidden border border-white/10 bg-[radial-gradient(ellipse_at_center,rgba(82,127,145,0.16),transparent_72%)] shadow-[0_12px_36px_rgba(0,0,0,0.2)] sm:h-[320px] md:h-[340px] lg:h-[380px]">
       {hasEntered && <Canvas
         camera={{ position: [3.3, 2.55, isDesktop ? 8.4 : 10], fov: 43 }}
         dpr={[1, 1.5]}

@@ -25,7 +25,7 @@ const categories = [
     label: 'Backend',
     skills: [
       { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
-      { name: 'Express', icon: SiExpress, color: '#ffffff' },
+      { name: 'Express', icon: SiExpress, color: '#d6d9d5' },
       { name: 'Python', icon: SiPython, color: '#3776AB' },
       { name: 'FastAPI', icon: SiFastapi, color: '#009688' },
       { name: '.NET', icon: SiDotnet, color: '#512BD4' },
@@ -39,7 +39,7 @@ const categories = [
       { name: 'NumPy', icon: SiNumpy, color: '#4DABCF' },
       { name: 'pandas', icon: SiPandas, color: '#E70488' },
       { name: 'SciPy', icon: SiScipy, color: '#8CAAE6' },
-      { name: 'OpenAI', icon: SiOpenai, color: '#ffffff' },
+      { name: 'OpenAI', icon: SiOpenai, color: '#d6d9d5' },
       { name: 'Claude', icon: SiClaude, color: '#D97757' },
       { name: 'Gemini', icon: SiGooglegemini, color: '#8E75B2' },
       { name: 'Groq', icon: TbSparkles, color: '#F55036' },
@@ -70,7 +70,7 @@ const categories = [
     skills: [
       { name: 'Cloudflare', icon: SiCloudflare, color: '#F38020' },
       { name: 'Railway', icon: SiRailway, color: '#B57BFF' },
-      { name: 'Vercel', icon: SiVercel, color: '#ffffff' },
+      { name: 'Vercel', icon: SiVercel, color: '#d6d9d5' },
     ],
   },
   {
@@ -84,13 +84,13 @@ const categories = [
 
 export default function Skills() {
   return (
-    <section className="px-8 py-24 max-w-7xl mx-auto border-t border-neutral-800">
+    <section className="px-8 py-24 max-w-7xl mx-auto border-t border-white/10">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-base uppercase tracking-widest text-neutral-400 mb-12 md:text-lg"
+        className="text-base uppercase tracking-widest text-[#aebbc0] mb-12 md:text-lg"
       >
         Skills
       </motion.h2>
@@ -104,7 +104,7 @@ export default function Skills() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: ci * 0.1 }}
           >
-            <p className="text-sm uppercase tracking-widest text-neutral-400 mb-5">
+            <p className="text-sm uppercase tracking-widest text-[#aebbc0] mb-5">
               {cat.label}
             </p>
             <ul className="flex flex-col gap-4">
@@ -124,7 +124,7 @@ export default function Skills() {
                       style={{ color: skill.color }}
                       className="shrink-0 opacity-80 group-hover:opacity-100 transition-opacity duration-200"
                     />
-                    <span className="text-base text-neutral-300 group-hover:text-white transition-colors duration-200 md:text-lg">
+                    <span className="text-base text-[#d6d9d5] group-hover:text-[#9fbeca] transition-colors duration-200 md:text-lg">
                       {skill.name}
                     </span>
                   </motion.li>

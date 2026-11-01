@@ -30,13 +30,13 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="about" className="px-8 py-24 max-w-7xl mx-auto border-t border-neutral-800">
+    <section id="about" className="px-8 py-24 max-w-7xl mx-auto border-t border-white/10">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-base uppercase tracking-widest text-neutral-400 mb-12 md:text-lg"
+        className="text-base uppercase tracking-widest text-[#aebbc0] mb-12 md:text-lg"
       >
         Experience
       </motion.h2>
@@ -52,14 +52,14 @@ export default function Experience() {
             className="flex flex-col md:flex-row gap-6 md:gap-16"
           >
             <div className="md:w-52 shrink-0">
-              <p className="text-base font-semibold text-white">{exp.role}</p>
-              <p className="text-base text-neutral-400 mt-1">{exp.company}</p>
-              <p className="text-sm text-neutral-500 mt-1">{exp.period}</p>
+              <p className="text-base font-semibold text-[#eee9df]">{exp.role}</p>
+              <p className="text-base text-[#c1c9c8] mt-1">{exp.company}</p>
+              <p className="text-sm text-[#aebbc0] mt-1">{exp.period}</p>
             </div>
             <ul className="flex flex-col gap-3">
               {exp.points.map((point, j) => (
-                  <li key={j} className="text-base text-neutral-400 flex gap-3 leading-relaxed">
-                  <span className="text-neutral-700 mt-0.5 shrink-0">—</span>
+                  <li key={j} className="text-base text-[#c1c9c8] flex gap-3 leading-relaxed">
+                  <span className="text-[#9fbeca] mt-0.5 shrink-0">—</span>
                   {point}
                 </li>
               ))}

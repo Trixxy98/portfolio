@@ -38,18 +38,18 @@ export default function WhatIDo() {
   const [open, setOpen] = useState(null)
 
   return (
-    <section className="px-8 py-24 max-w-7xl mx-auto border-t border-neutral-800">
+    <section className="px-8 py-24 max-w-7xl mx-auto border-t border-white/10">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-xs uppercase tracking-widest text-neutral-500 mb-12"
+        className="text-xs uppercase tracking-widest text-[#aebbc0] mb-12"
       >
         What I Do
       </motion.h2>
 
-      <div className="divide-y divide-neutral-800">
+      <div className="divide-y divide-white/10">
         {services.map((s, i) => (
           <motion.div
             key={s.num}
@@ -62,13 +62,13 @@ export default function WhatIDo() {
               onClick={() => setOpen(open === s.num ? null : s.num)}
               className="w-full flex items-start gap-8 py-6 text-left group"
             >
-              <span className="text-xs text-neutral-700 font-mono mt-1 w-6 shrink-0">{s.num}</span>
+              <span className="text-xs text-[#9fbeca] font-mono mt-1 w-6 shrink-0">{s.num}</span>
               <div className="flex-1 flex items-center justify-between">
-                <h3 className="text-lg font-medium group-hover:underline underline-offset-4 decoration-neutral-700">
+                <h3 className="text-lg font-medium text-[#eee9df] group-hover:underline underline-offset-4 decoration-white/40">
                   {s.title}
                 </h3>
                 <span
-                  className="text-neutral-600 text-xl leading-none transition-transform duration-300"
+                  className="text-[#aebbc0] text-xl leading-none transition-transform duration-300"
                   style={{ transform: open === s.num ? 'rotate(45deg)' : 'rotate(0deg)' }}
                 >
                   +
@@ -84,7 +84,7 @@ export default function WhatIDo() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="pl-6 md:pl-14 pb-6 text-sm text-neutral-400 leading-relaxed max-w-xl">
+                  <p className="pl-6 md:pl-14 pb-6 text-sm text-[#c1c9c8] leading-relaxed max-w-xl">
                     {s.desc}
                     </p>
 
@@ -102,10 +102,10 @@ export default function WhatIDo() {
         transition={{ duration: 0.5 }}
         className="mt-24 flex flex-col items-center text-center gap-6"
       >
-        <p className="text-2xl font-semibold">Have a project in mind? Let's talk.</p>
+        <p className="text-2xl font-semibold text-[#eee9df]">Have a project in mind? Let's talk.</p>
         <a
           href="mailto:harithfakrullah@gmail.com"
-          className="px-6 py-3 border border-neutral-600 rounded-full text-sm hover:bg-white hover:text-black hover:border-white transition-all duration-200"
+          className="px-6 py-3 border border-white/20 rounded-full text-sm hover:bg-[#eee9df] hover:text-[#101820] hover:border-[#eee9df] transition-all duration-200"
         >
           Get in touch →
         </a>

@@ -36,9 +36,9 @@ export default function Hero({ introComplete = true }) {
   return (
     <section className="relative min-h-screen">
       <BlueprintCar introComplete={introComplete} />
-      <div className="relative z-10 flex min-h-screen flex-col pt-32 px-8 max-w-7xl mx-auto">
+      <div className="relative z-10 flex min-h-screen flex-col pt-32 px-8 max-w-7xl mx-auto text-[#eee9df]">
       {/* Glow */}
-      <div className="absolute top-1/4 left-1/3 w-[500px] h-[350px] rounded-full bg-violet-950/30 blur-[130px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute top-1/4 left-1/3 w-[500px] h-[350px] rounded-full bg-[#527f91]/15 blur-[130px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
 
       {/* Heading */}
       <div className="flex flex-1 items-start pt-4 md:pt-8">
@@ -52,7 +52,7 @@ export default function Hero({ introComplete = true }) {
               {line.map((word) => (
                 <span key={word} className="mr-[0.2em] inline-block overflow-hidden align-bottom">
                   {word === 'Harith.' ? (
-                    <em className="word-inner block italic text-violet-300 underline decoration-violet-400/40 underline-offset-4">
+                    <em className="word-inner block italic text-[#a9c0c9] underline decoration-[#a9c0c9]/40 underline-offset-4">
                       {word}
                     </em>
                   ) : (
@@ -75,10 +75,10 @@ export default function Hero({ introComplete = true }) {
         >
           {infoItems.map((item) => (
             <div key={item.label}>
-              <p className="text-xs font-mono uppercase tracking-widest text-neutral-500 mb-1">
+              <p className="text-xs font-mono uppercase tracking-widest text-[#aebbc0] mb-1">
                 {item.label}
               </p>
-              <p className="text-base text-neutral-200">{item.value}</p>
+              <p className="text-base text-[#c1c9c8]">{item.value}</p>
             </div>
           ))}
         </motion.div>
@@ -91,7 +91,7 @@ export default function Hero({ introComplete = true }) {
   <MagneticButton
     href="/Resume_Mohd_Harith_Fakrullah.pdf"
     download="Harith_Fakrullah_Resume.pdf"
-    className="inline-flex items-center gap-2 text-sm text-neutral-400 border border-neutral-700 px-4 py-2 rounded-full hover:border-neutral-400 hover:text-white transition-all duration-200"
+    className="inline-flex items-center gap-2 text-sm text-[#c1c9c8] border border-white/20 px-4 py-2 rounded-full hover:border-[#a9c0c9] hover:text-white transition-all duration-200"
   >
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>

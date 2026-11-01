@@ -71,22 +71,22 @@ export default function LoadingScreen({ onComplete }) {
   const team = TEAMS[index]
 
   return (
-    <div ref={containerRef} className="fixed inset-0 z-[100] h-screen h-dvh overflow-hidden bg-[#061018]">
+    <div ref={containerRef} className="fixed inset-0 z-[100] h-screen h-dvh overflow-hidden bg-[#101820] text-[#eee9df]">
       <div
         aria-hidden
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-[0.12]"
         style={{
-          backgroundImage: 'linear-gradient(rgba(20,48,68,0.55) 1px, transparent 1px), linear-gradient(90deg, rgba(20,48,68,0.55) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(159,190,202,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(159,190,202,0.08) 1px, transparent 1px)',
           backgroundSize: '64px 64px',
         }}
       />
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-5 py-4">
-        <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.4em] text-[#9fd6ff]/60 sm:mb-8">
-          The Grid
+        <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.4em] text-[#aebbc0] sm:mb-8">
+          Harith Fakrullah · Portfolio
         </p>
 
-        <div className="relative grid h-[clamp(120px,28dvh,220px)] w-[min(85vw,380px)] place-items-center bg-[radial-gradient(ellipse_at_center,rgba(20,48,68,0.5),rgba(6,16,24,0.2)_75%)]">
+        <div className="relative grid h-[clamp(120px,28dvh,220px)] w-[min(85vw,380px)] place-items-center">
           <AnimatePresence>
             {ready && (
               <motion.img
@@ -97,7 +97,7 @@ export default function LoadingScreen({ onComplete }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.18 }}
-                className="absolute max-h-[75%] max-w-[80%] object-contain"
+                className="absolute max-h-[75%] max-w-[80%] object-contain drop-shadow-[0_8px_20px_rgba(0,0,0,0.42)]"
               />
             )}
           </AnimatePresence>
