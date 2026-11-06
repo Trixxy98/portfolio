@@ -1,9 +1,11 @@
-import { useRef } from 'react'
+import { lazy, Suspense, useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import MagneticButton from './MagneticButton'
-import BlueprintCar from './BlueprintCar'
+import { scrollToHash } from '../hooks/useSmoothScroll'
+
+const BlueprintCar = lazy(() => import('./BlueprintCar'))
 
 const headingLines = [
   ["I'm", 'Harith.'],
@@ -22,6 +24,7 @@ export default function Hero({ introComplete = true }) {
   const headingRef = useRef(null)
 
   useGSAP(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const words = headingRef.current.querySelectorAll('.word-inner')
     gsap.from(words, {
       y: 80,
@@ -34,17 +37,19 @@ export default function Hero({ introComplete = true }) {
   }, { scope: headingRef })
 
   return (
-    <section className="relative min-h-screen">
-      <BlueprintCar introComplete={introComplete} />
+    <section id="top" className="relative min-h-screen">
+      <Suspense fallback={null}>
+        <BlueprintCar introComplete={introComplete} />
+      </Suspense>
       <div className="relative z-10 flex min-h-screen flex-col pt-32 px-8 max-w-7xl mx-auto text-[#eee9df]">
       {/* Glow */}
       <div className="absolute top-1/4 left-1/3 w-[500px] h-[350px] rounded-full bg-[#527f91]/15 blur-[130px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
 
       {/* Heading */}
-      <div className="flex flex-1 items-start pt-4 md:pt-8">
+      <div className="flex flex-1 flex-col items-start gap-6 pt-4 md:pt-8">
         <h1
           ref={headingRef}
-          aria-label="I'm Harith, a software developer based in Malaysia. I build thoughtful web experiences."
+          aria-label="I'm Harith, a software developer based in Malaysia."
           className="relative max-w-3xl font-serif font-light text-[clamp(2.6rem,9vw,4.5rem)] leading-[1.03] tracking-tight lg:text-[clamp(4rem,5vw,5.25rem)]"
         >
           {headingLines.map((line, index) => (
@@ -63,6 +68,14 @@ export default function Hero({ introComplete = true }) {
             </span>
           ))}
         </h1>
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.8 }}
+          className="relative max-w-md text-base leading-7 text-[#c1c9c8] md:text-lg"
+        >
+          I build thoughtful, performant web experiences, from polished React interfaces to AI-powered full-stack apps.
+        </motion.p>
       </div>
 
       {/* Bottom: Info + resume */}
@@ -84,24 +97,32 @@ export default function Hero({ introComplete = true }) {
         </motion.div>
 
         <motion.div
-  initial={{ opacity: 0, y: 10 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: 1.2 }}
->
-  <MagneticButton
-    href="/Resume_Mohd_Harith_Fakrullah.pdf"
-    download="Harith_Fakrullah_Resume.pdf"
-    className="inline-flex items-center gap-2 text-sm text-[#c1c9c8] border border-white/20 px-4 py-2 rounded-full hover:border-[#a9c0c9] hover:text-white transition-all duration-200"
-  >
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-      <polyline points="7 10 12 15 17 10"/>
-      <line x1="12" y1="15" x2="12" y2="3"/>
-    </svg>
-    Download Resume
-  </MagneticButton>
-</motion.div>
-
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.2 }}
+          className="flex flex-wrap items-center gap-3"
+        >
+          <MagneticButton
+            href="#work"
+            onClick={(e) => { e.preventDefault(); scrollToHash('#work') }}
+            className="inline-flex items-center gap-2 rounded-full border border-[#eee9df] bg-[#eee9df] px-5 py-2.5 text-sm font-medium text-[#101820] transition-all duration-200 hover:border-[#9fbeca] hover:bg-[#9fbeca]"
+          >
+            View my work
+            <span aria-hidden="true">↓</span>
+          </MagneticButton>
+          <MagneticButton
+            href="/Resume_Mohd_Harith_Fakrullah.pdf"
+            download="Harith_Fakrullah_Resume.pdf"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm text-[#c1c9c8] transition-all duration-200 hover:border-[#a9c0c9] hover:text-white"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download Resume
+          </MagneticButton>
+        </motion.div>
       </div>
       </div>
     </section>

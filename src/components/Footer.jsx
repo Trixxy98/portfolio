@@ -1,17 +1,13 @@
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import ScrambleText from './ScrambleText'
+import { formatMalaysiaTime } from '../utils/time'
 
 function LiveClock() {
   const [time, setTime] = useState('')
 
   useEffect(() => {
-    const update = () => {
-      const now = new Date()
-      const h = String(now.getHours()).padStart(2, '0')
-      const m = String(now.getMinutes()).padStart(2, '0')
-      setTime(`${h}:${m}`)
-    }
+    const update = () => setTime(formatMalaysiaTime())
     update()
     const interval = setInterval(update, 1000)
     return () => clearInterval(interval)
@@ -20,9 +16,44 @@ function LiveClock() {
   return <span>{time}</span>
 }
 
+const EMAIL = 'harithfakrullah@gmail.com'
+
+function CopyEmailButton() {
+  const [copied, setCopied] = useState(false)
+  const timer = useRef(0)
+
+  useEffect(() => () => clearTimeout(timer.current), [])
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL)
+      setCopied(true)
+      clearTimeout(timer.current)
+      timer.current = setTimeout(() => setCopied(false), 2000)
+    } catch {
+      window.location.href = `mailto:${EMAIL}`
+    }
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={copy}
+      className="inline-flex items-center gap-2 border border-white/15 px-3 py-1.5 font-mono text-xs uppercase tracking-wider text-[#c1c9c8] transition-colors hover:border-[#9fbeca] hover:text-[#eee9df]"
+    >
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        {copied
+          ? <polyline points="20 6 9 17 4 12" />
+          : <><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></>}
+      </svg>
+      <span aria-live="polite">{copied ? 'Copied!' : 'Copy email'}</span>
+    </button>
+  )
+}
+
 export default function Footer() {
   return (
-    <footer className="px-8 pt-20 pb-10 max-w-[1400px] mx-auto">
+    <footer className="mx-auto max-w-[1400px] border-t border-white/10 px-8 pt-20 pb-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -39,19 +70,21 @@ export default function Footer() {
         {/* Email + portrait */}
         <div className="flex items-center gap-4 pb-6 md:gap-8">
           <a
-            href="mailto:harithfakrullah@gmail.com"
-            className="min-w-0 flex-1 break-all font-serif text-[clamp(1.25rem,5vw,2.4rem)] font-light leading-none tracking-tight text-[#eee9df] transition-colors duration-300 hover:text-[#9fbeca] md:text-[clamp(2rem,5vw,5.5rem)]"
+            href={`mailto:${EMAIL}`}
+            className="min-w-0 flex-1 break-words font-serif text-[clamp(1.25rem,5vw,2.4rem)] font-light leading-none tracking-tight text-[#eee9df] transition-colors duration-300 hover:text-[#9fbeca] md:text-[clamp(2rem,5vw,5.5rem)]"
           >
-            harithfakrullah@gmail.com
+            harithfakrullah<wbr />@gmail.com
           </a>
           <div className="size-20 shrink-0 overflow-hidden rounded-full border border-[#9fbeca]/50 bg-[#18232b] p-1 shadow-[0_8px_24px_rgba(0,0,0,0.3)] md:size-28 lg:size-36">
             <img
-              src="/photo.jpg"
-              alt="Portrait of Harith Fakrullah"
+              src="/photo.webp"
+              alt=""
+              loading="lazy"
               className="size-full rounded-full object-cover object-center"
             />
           </div>
         </div>
+        <CopyEmailButton />
 
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mt-8 text-sm text-[#aebbc0]">
@@ -89,7 +122,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <p className="mt-6 text-[10px] text-[#aebbc0]">
+        <p className="mt-6 text-[11px] text-[#aebbc0]">
           3D car: <a href="https://sketchfab.com/3d-models/f1-2026-concept-polygon-model-ea3bde709b1e4dc9b0ec8557d106ed42" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-[#d6d9d5]">F1 2026 concept by Qvist_designs</a>
           {' · '}<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-[#d6d9d5]">CC BY 4.0</a>
           {' · '}Optimised and restyled for this site.

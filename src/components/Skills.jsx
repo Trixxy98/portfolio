@@ -9,6 +9,7 @@ import {
   SiCloudflare, SiRailway, SiVercel, SiGit, SiStripe,
 } from 'react-icons/si'
 import { TbSparkles } from 'react-icons/tb'
+import SectionHeader from './SectionHeader'
 
 const categories = [
   {
@@ -58,16 +59,11 @@ const categories = [
     ],
   },
   {
-    label: 'DevOps',
+    label: 'DevOps & Cloud',
     skills: [
       { name: 'Docker', icon: SiDocker, color: '#2496ED' },
       { name: 'GitHub Actions', icon: SiGithubactions, color: '#2088FF' },
       { name: 'Terraform', icon: SiTerraform, color: '#7B42BC' },
-    ],
-  },
-  {
-    label: 'Deploy',
-    skills: [
       { name: 'Cloudflare', icon: SiCloudflare, color: '#F38020' },
       { name: 'Railway', icon: SiRailway, color: '#B57BFF' },
       { name: 'Vercel', icon: SiVercel, color: '#d6d9d5' },
@@ -84,16 +80,15 @@ const categories = [
 
 export default function Skills() {
   return (
-    <section className="px-8 py-24 max-w-7xl mx-auto border-t border-white/10">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="text-base uppercase tracking-widest text-[#aebbc0] mb-12 md:text-lg"
-      >
-        Skills
-      </motion.h2>
+    <section id="skills" className="px-8 py-24 max-w-7xl mx-auto border-t border-white/10">
+      <SectionHeader
+        index="04"
+        eyebrow="Skills / Stack"
+        title="Tools of the"
+        accent="trade."
+        description="The languages, frameworks and platforms I reach for day to day."
+        className="mb-14"
+      />
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12">
         {categories.map((cat, ci) => (
@@ -104,7 +99,7 @@ export default function Skills() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: ci * 0.1 }}
           >
-            <p className="text-sm uppercase tracking-widest text-[#aebbc0] mb-5">
+            <p className="mb-5 border-b border-white/10 pb-3 font-mono text-xs uppercase tracking-[0.18em] text-[#9fbeca]">
               {cat.label}
             </p>
             <ul className="flex flex-col gap-4">
@@ -117,14 +112,15 @@ export default function Skills() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: ci * 0.1 + si * 0.05 }}
+                    style={{ '--brand': skill.color }}
                     className="flex items-center gap-3 group cursor-default"
                   >
                     <Icon
-                      size={20}
-                      style={{ color: skill.color }}
-                      className="shrink-0 opacity-80 group-hover:opacity-100 transition-opacity duration-200"
+                      size={18}
+                      aria-hidden="true"
+                      className="shrink-0 text-[#aebbc0] transition-colors duration-200 group-hover:text-[var(--brand)]"
                     />
-                    <span className="text-base text-[#d6d9d5] group-hover:text-[#9fbeca] transition-colors duration-200 md:text-lg">
+                    <span className="text-base text-[#d6d9d5] transition-colors duration-200 group-hover:text-[#eee9df]">
                       {skill.name}
                     </span>
                   </motion.li>

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 export default function CustomCursor() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible] = useState(() => !window.matchMedia('(hover: none)').matches)
   const [isHovering, setIsHovering] = useState(false)
 
   const mouseX = useMotionValue(-100)
@@ -16,34 +16,28 @@ export default function CustomCursor() {
 
   useEffect(() => {
     // Hide on touch devices
-    if (window.matchMedia('(hover: none)').matches) return
+    if (!isVisible) return undefined
 
-    setIsVisible(true)
+    document.documentElement.classList.add('has-custom-cursor')
 
     const move = (e) => {
       mouseX.set(e.clientX)
       mouseY.set(e.clientY)
     }
 
-    const handleHoverIn = () => setIsHovering(true)
-    const handleHoverOut = () => setIsHovering(false)
+    // Delegated so elements rendered after mount (menus, fetched content) also count.
+    const INTERACTIVE = 'a, button, [role="button"], input, select, textarea, label'
+    const handleOver = (e) => setIsHovering(Boolean(e.target.closest?.(INTERACTIVE)))
 
     window.addEventListener('mousemove', move)
-
-    const interactables = document.querySelectorAll('a, button')
-    interactables.forEach((el) => {
-      el.addEventListener('mouseenter', handleHoverIn)
-      el.addEventListener('mouseleave', handleHoverOut)
-    })
+    document.addEventListener('mouseover', handleOver)
 
     return () => {
       window.removeEventListener('mousemove', move)
-      interactables.forEach((el) => {
-        el.removeEventListener('mouseenter', handleHoverIn)
-        el.removeEventListener('mouseleave', handleHoverOut)
-      })
+      document.removeEventListener('mouseover', handleOver)
+      document.documentElement.classList.remove('has-custom-cursor')
     }
-  }, [])
+  }, [isVisible, mouseX, mouseY])
 
   if (!isVisible) return null
 

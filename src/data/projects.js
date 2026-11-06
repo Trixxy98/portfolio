@@ -22,7 +22,7 @@ export const projects = [
       tech: ['React', 'Python', 'FastAPI', 'PostgreSQL', 'Docker'],
       github: 'https://github.com/Trixxy98/Quantify',
       live: null,
-      image: '/quantify.png',
+      image: '/quantify.webp',
       color: '#101010',
     },
     {
@@ -35,7 +35,7 @@ export const projects = [
       tech: ['OpenAI', 'Groq LLM', 'MediaPipe', 'React', 'Node.js', 'MongoDB', 'Redis'],
       github: 'https://github.com/Trixxy98/AI-Interview-Simulator',
       live: null,
-      image: '/AI-IV.png',
+      image: '/AI-IV.webp',
       color: '#121212',
     },
     {
@@ -48,7 +48,7 @@ export const projects = [
       tech: ['React', 'Tailwind CSS', 'Vite'],
       github: 'https://github.com/Trixxy98/UI-styles-landing',
       live: 'https://uiverse-livid.vercel.app/',
-      image: '/uiverse.png',
+      image: '/uiverse.webp',
       color: '#151515',
     },
     {
@@ -61,7 +61,7 @@ export const projects = [
       tech: ['Claude AI', 'Puter SDK', 'LLM', 'React', 'TypeScript', 'PostgreSQL'],
       github: 'https://github.com/Trixxy98/AI-resumeAnalyzer',
       live: 'https://ai-resumeanalyzer-production-195b.up.railway.app/',
-      image: '/resumai.png',
+      image: '/resumai.webp',
       color: '#1a1a1a',
     },
     {
@@ -87,7 +87,7 @@ export const projects = [
       tech: ['React', 'Node.js', 'Prisma', 'PostgreSQL', 'AWS', 'Docker', 'Textract', 'Terraform'],
       github: 'https://github.com/Trixxy98/Resitku',
       live: null,
-      image: '/resitku.png',
+      image: '/resitku.webp',
       color: '#131313',
     },
     {
@@ -100,7 +100,7 @@ export const projects = [
       tech: ['React', 'Node.js', 'Express', 'MySQL', 'Stripe', 'Gemini'],
       github: 'https://github.com/Trixxy98/TaskFlow-API',
       live: 'https://taskflow-api-production-66fc.up.railway.app',
-      image: '/taskflow.png',
+      image: '/taskflow.webp',
       color: '#181818',
     },
   ]

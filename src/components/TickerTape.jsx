@@ -1,87 +1,53 @@
 import { useEffect, useState } from 'react'
+import { formatMalaysiaTime } from '../utils/time'
+import { projects } from '../data/projects'
 
-const BASE = [
-  { sym: 'REACT', px: 19.21, chg: 0.42 },
-  { sym: 'NODE', px: 22.14, chg: 0.18 },
-  { sym: 'TS', px: 5.82, chg: 0.09 },
-  { sym: 'SQL', px: 16.04, chg: -0.11 },
-  { sym: 'DOCKER', px: 8.77, chg: 0.23 },
-  { sym: 'GSAP', px: 3.41, chg: -0.04 },
-  { sym: 'REDIS', px: 7.62, chg: 0.15 },
-  { sym: 'LLM', px: 41.08, chg: 1.12 },
-  { sym: 'PYTHON', px: 15.33, chg: -0.21 },
-  { sym: 'GIT', px: 2.58, chg: 0.03 },
+const ITEMS = [
+  { label: 'STATUS', value: 'OPEN TO WORK', tone: 'up' },
+  { label: 'ROLE', value: 'SOFTWARE DEVELOPER @ DATASCIENCE' },
+  { label: 'PROJECTS', value: String(projects.length).padStart(2, '0') },
+  { label: 'LATEST', value: projects[0]?.title.toUpperCase() },
+  { label: 'STACK', value: 'REACT · NODE · PYTHON · .NET' },
+  { label: 'AI', value: 'OPENAI · CLAUDE · GEMINI · GROQ' },
+  { label: 'LANG', value: 'BM · EN · 中文' },
+  { label: 'BASED', value: 'REMBAU, MY' },
 ]
 
-function formatPx(n) {
-  return n.toFixed(2)
-}
-
-function formatChg(n) {
-  const sign = n >= 0 ? '+' : ''
-  return `${sign}${n.toFixed(2)}`
-}
-
-function Quotes({ quotes }) {
+function Items({ hidden = false }) {
   return (
-    <div className="flex items-center gap-8 px-6">
-      {quotes.map((q) => {
-        const up = q.chg >= 0
-        return (
-          <span key={q.sym} className="flex items-center gap-2.5 shrink-0">
-            <span className="text-[#c1c9c8]">{q.sym}</span>
-            <span className="text-[#aebbc0] tabular-nums">{formatPx(q.px)}</span>
-            <span className={`tabular-nums ${up ? 'text-emerald-300' : 'text-red-300'}`}>
-              {formatChg(q.chg)}
-            </span>
-          </span>
-        )
-      })}
+    <div className="flex shrink-0 items-center gap-8 px-6" aria-hidden={hidden || undefined}>
+      {ITEMS.map((item) => (
+        <span key={item.label} className="flex items-center gap-2.5 shrink-0">
+          <span className="text-[#84949b]">{item.label}</span>
+          <span className={item.tone === 'up' ? 'text-emerald-300' : 'text-[#c1c9c8]'}>{item.value}</span>
+          <span aria-hidden="true" className="text-white/15">/</span>
+        </span>
+      ))}
     </div>
   )
 }
 
 export default function TickerTape() {
-  const [quotes, setQuotes] = useState(BASE)
   const [clock, setClock] = useState('')
 
   useEffect(() => {
-    const tick = () => {
-      const now = new Date()
-      const h = String(now.getHours()).padStart(2, '0')
-      const m = String(now.getMinutes()).padStart(2, '0')
-      const s = String(now.getSeconds()).padStart(2, '0')
-      setClock(`${h}:${m}:${s}`)
-    }
+    const tick = () => setClock(formatMalaysiaTime(new Date(), { seconds: true }))
     tick()
     const id = setInterval(tick, 1000)
     return () => clearInterval(id)
   }, [])
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      setQuotes((prev) =>
-        prev.map((q) => {
-          const d = (Math.random() - 0.48) * 0.06
-          const px = Math.max(0.2, q.px + d)
-          return { ...q, px, chg: q.chg + d * 0.4 }
-        }),
-      )
-    }, 1100)
-    return () => clearInterval(id)
-  }, [])
-
   return (
-    <div className="h-7 flex items-stretch border-b border-white/10 bg-[#101820]/95 backdrop-blur-sm font-mono text-[10px] tracking-wide text-[#aebbc0]">
+    <div className="h-7 flex items-stretch border-b border-white/10 bg-[#101820]/95 backdrop-blur-sm font-mono text-[11px] tracking-wide text-[#aebbc0]">
       <div className="shrink-0 flex items-center gap-2 px-4 border-r border-white/10">
-        <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-        <span className="text-emerald-300">LIVE</span>
+        <span className="size-1.5 rounded-full bg-emerald-400 motion-safe:animate-pulse" aria-hidden="true" />
+        <span className="text-emerald-300">AVAILABLE</span>
       </div>
 
       <div className="relative flex-1 overflow-hidden">
-        <div className="absolute inset-y-0 flex items-center ticker-track">
-          <Quotes quotes={quotes} />
-          <Quotes quotes={quotes} />
+        <div className="absolute inset-y-0 left-0 flex w-max items-center ticker-track">
+          <Items />
+          <Items hidden />
         </div>
       </div>
 

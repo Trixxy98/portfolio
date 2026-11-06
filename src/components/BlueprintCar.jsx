@@ -2,6 +2,7 @@ import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 import * as THREE from 'three'
+import { carModelUrl, SMALL_SCREEN_QUERY } from '../data/models'
 
 const LOOK = new THREE.Vector3(0.2, -0.08, 0)
 const CAMERA_AIM = new THREE.Vector3()
@@ -96,9 +97,7 @@ function setCarTransition(layers, progress) {
 }
 
 function CarModel({ isSmallScreen, staticMode, introComplete }) {
-  const gltf = useLoader(GLTFLoader, isSmallScreen
-    ? '/models/f1-2026-concept-mobile.glb'
-    : '/models/f1-2026-concept.glb')
+  const gltf = useLoader(GLTFLoader, carModelUrl(isSmallScreen))
   const { root: model, layers } = useMemo(() => {
     const root = gltf.scene.clone(true)
     // The supplied model is millimetre-scale and points along X, while the
@@ -257,7 +256,7 @@ function Scene({ pointer, staticMode, isSmallScreen, introComplete, onLabel }) {
 
 export default function BlueprintCar({ introComplete = true }) {
   const staticMode = useMediaQuery('(prefers-reduced-motion: reduce)')
-  const isSmallScreen = useMediaQuery('(max-width: 767px)')
+  const isSmallScreen = useMediaQuery(SMALL_SCREEN_QUERY)
   const pointer = useRef({ x: 0, y: 0 })
   const [label, setLabel] = useState('AERODYNAMICS')
 
@@ -287,7 +286,7 @@ export default function BlueprintCar({ introComplete = true }) {
         <Scene pointer={pointer} staticMode={staticMode} isSmallScreen={isSmallScreen} introComplete={introComplete} onLabel={setLabel} />
       </Canvas>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,rgba(16,24,32,0.72)_0%,transparent_58%)]" />
-      <p className="absolute top-28 right-8 font-mono text-[10px] tracking-[0.28em] text-[#9fbeca]">
+      <p className="absolute top-28 right-8 font-mono text-[11px] tracking-[0.28em] text-[#9fbeca]">
         {label}
       </p>
     </div>

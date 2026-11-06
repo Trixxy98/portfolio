@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import SectionHeader from './SectionHeader'
 
 const experiences = [
   {
@@ -30,16 +31,14 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="about" className="px-8 py-24 max-w-7xl mx-auto border-t border-white/10">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="text-base uppercase tracking-widest text-[#aebbc0] mb-12 md:text-lg"
-      >
-        Experience
-      </motion.h2>
+    <section id="experience" className="px-8 py-24 max-w-7xl mx-auto border-t border-white/10">
+      <SectionHeader
+        index="05"
+        eyebrow="Experience / Career"
+        title="Where I've"
+        accent="worked."
+        className="mb-14"
+      />
 
       <div className="flex flex-col gap-14">
         {experiences.map((exp, i) => (
@@ -54,7 +53,7 @@ export default function Experience() {
             <div className="md:w-52 shrink-0">
               <p className="text-base font-semibold text-[#eee9df]">{exp.role}</p>
               <p className="text-base text-[#c1c9c8] mt-1">{exp.company}</p>
-              <p className="text-sm text-[#aebbc0] mt-1">{exp.period}</p>
+              <p className="mt-2 font-mono text-xs uppercase tracking-wider text-[#9fbeca]">{exp.period}</p>
             </div>
             <ul className="flex flex-col gap-3">
               {exp.points.map((point, j) => (

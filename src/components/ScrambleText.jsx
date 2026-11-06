@@ -2,15 +2,16 @@ import { useState, useEffect, useRef } from 'react'
 
 const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%'
 
+function prefersReducedMotion() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
 function useScramble(text, trigger) {
   const [output, setOutput] = useState(text)
   const frameRef = useRef(null)
 
   useEffect(() => {
-    if (!trigger) {
-      setOutput(text)
-      return
-    }
+    if (!trigger) return undefined
 
     let frame = 0
     const totalFrames = text.length * 4
@@ -39,7 +40,8 @@ function useScramble(text, trigger) {
     return () => cancelAnimationFrame(frameRef.current)
   }, [trigger, text])
 
-  return output
+  // When not animating, always show the real text.
+  return trigger ? output : text
 }
 
 export default function ScrambleText({ text, className, as: Tag = 'span' }) {
@@ -49,10 +51,11 @@ export default function ScrambleText({ text, className, as: Tag = 'span' }) {
   return (
     <Tag
       className={className}
-      onMouseEnter={() => setHovered(true)}
+      onMouseEnter={() => setHovered(!prefersReducedMotion())}
       onMouseLeave={() => setHovered(false)}
     >
-      {output}
+      <span className="sr-only">{text}</span>
+      <span aria-hidden="true">{output}</span>
     </Tag>
   )
 }

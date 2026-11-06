@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './GithubContributions.css'
+import SectionHeader from './SectionHeader'
 
 const USERNAME = 'Trixxy98'
 const API = `https://github-contributions-api.jogruber.de/v4/${USERNAME}`
@@ -94,22 +95,25 @@ export default function GithubContributions() {
   return (
     <section id="contributions" className="border-t border-white/10 px-5 py-20 sm:px-8 md:py-24" aria-labelledby="contributions-title">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 flex flex-wrap items-end justify-between gap-7">
-          <div>
-            <p className="mb-5 font-mono text-xs uppercase tracking-[0.22em] text-[#9fbeca]">Open source / Activity log</p>
-            <h2 id="contributions-title" className="font-serif text-5xl font-light leading-[1.05] md:text-6xl">A year in <em className="text-[#a9c0c9]">code.</em></h2>
-            <p className="mt-4 max-w-lg text-sm leading-7 text-[#c1c9c8] sm:text-base">A glimpse of my public GitHub contribution history, one day at a time.</p>
-          </div>
+        <SectionHeader
+          index="03"
+          eyebrow="Open source / Activity log"
+          id="contributions-title"
+          title="A year in"
+          accent="code."
+          description="A glimpse of my public GitHub contribution history, one day at a time."
+          className="mb-10"
+        >
           <a href={`https://github.com/${USERNAME}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-b border-[#9fbeca]/60 pb-1 font-mono text-xs uppercase tracking-wider text-[#a9c0c9] transition-colors hover:border-white hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9fbeca]">
             View GitHub profile <span aria-hidden="true">↗</span>
           </a>
-        </div>
+        </SectionHeader>
 
         <div className="contrib-panel relative overflow-hidden border border-white/10 bg-[#18232b] p-5 sm:p-8">
           <div className="contrib-glow pointer-events-none absolute -right-32 -top-48 size-96 rounded-full bg-[#527f91]/15 blur-3xl" aria-hidden="true" />
           <div className="relative flex flex-wrap items-center justify-between gap-5 border-b border-white/10 pb-6">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#9fbeca]">Contribution calendar / {year}</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#9fbeca]">Contribution calendar / {year}</p>
               <p className="mt-2 text-2xl font-light tabular-nums text-[#eee9df] sm:text-3xl" aria-live="polite">
                 {data ? data.total.toLocaleString() : '—'} <span className="text-sm text-[#aebbc0]">contributions in {year}</span>
               </p>
@@ -159,14 +163,14 @@ export default function GithubContributions() {
                   <span className="text-[#a9c0c9]">{activeDay && formatDate(activeDay.date)}</span>
                   <span className="mx-2 text-[#aebbc0]">/</span>{activeDay?.count} {activeDay?.count === 1 ? 'contribution' : 'contributions'}
                 </p>
-                <div className="flex items-center gap-1.5 font-mono text-[10px] text-[#aebbc0]" aria-label="Color intensity: less to more activity">
+                <div className="flex items-center gap-1.5 font-mono text-[11px] text-[#aebbc0]" aria-label="Color intensity: less to more activity">
                   <span className="mr-1">Less</span>{levels.map((label, level) => <span key={label} className={`contrib-legend contrib-level-${level}`} title={label} aria-hidden="true" />)}<span className="ml-1">More</span>
                 </div>
               </div>
             </>
           )}
         </div>
-        <p className="mt-4 font-mono text-[10px] leading-5 text-[#aebbc0]">Public GitHub contributions via <a className="underline underline-offset-2 hover:text-[#eee9df]" href="https://github-contributions-api.jogruber.de/" target="_blank" rel="noopener noreferrer">github-contributions-api.jogruber.de</a>. Counts may differ from private activity or update with a delay.</p>
+        <p className="mt-4 font-mono text-[11px] leading-5 text-[#aebbc0]">Public GitHub contributions via <a className="underline underline-offset-2 hover:text-[#eee9df]" href="https://github-contributions-api.jogruber.de/" target="_blank" rel="noopener noreferrer">github-contributions-api.jogruber.de</a>. Counts may differ from private activity or update with a delay.</p>
       </div>
     </section>
   )
