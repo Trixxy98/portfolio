@@ -55,7 +55,7 @@ function Services() {
 
   return (
     <div>
-      <p className="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-[#9fbeca]">What I do</p>
+      <p className="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-accent">What I do</p>
       <div className="divide-y divide-white/10 border-y border-white/10">
         {services.map((s) => {
           const isOpen = open === s.num
@@ -69,11 +69,11 @@ function Services() {
                   aria-controls={`service-${s.num}`}
                   className="group flex w-full items-center gap-6 py-5 text-left"
                 >
-                  <span className="w-6 shrink-0 font-mono text-xs text-[#9fbeca]">{s.num}</span>
-                  <span className="flex-1 text-lg text-[#eee9df] transition-colors group-hover:text-[#9fbeca]">{s.title}</span>
+                  <span className="w-6 shrink-0 font-mono text-xs text-accent">{s.num}</span>
+                  <span className="flex-1 text-lg text-paper transition-colors group-hover:text-accent">{s.title}</span>
                   <span
                     aria-hidden="true"
-                    className="text-xl leading-none text-[#aebbc0] transition-transform duration-300"
+                    className="text-xl leading-none text-subtle transition-transform duration-300"
                     style={{ transform: isOpen ? 'rotate(45deg)' : 'none' }}
                   >
                     +
@@ -90,7 +90,7 @@ function Services() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="max-w-xl pb-6 pl-12 text-sm leading-relaxed text-[#c1c9c8]">{s.desc}</p>
+                    <p className="max-w-xl pb-6 pl-12 text-sm leading-relaxed text-muted">{s.desc}</p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -104,7 +104,7 @@ function Services() {
 
 export default function About() {
   return (
-    <section id="about" className="border-t border-white/10 px-8 py-20 md:py-24">
+    <section id="about" className="border-t border-white/10 px-6 py-20 sm:px-8 md:py-24">
       <div className="mx-auto max-w-7xl">
         <SectionHeader index="02" eyebrow="About / Profile" title="A little" accent="about me." className="mb-14" />
 
@@ -115,7 +115,7 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="flex items-start gap-6">
+            <div className="flex flex-col items-start gap-6 sm:flex-row">
               <div className="relative w-28 shrink-0 sm:w-36">
                 <img
                   src="/photo.webp"
@@ -125,11 +125,11 @@ export default function About() {
                   height="360"
                   className="aspect-[4/5] w-full border border-white/10 object-cover grayscale-[35%]"
                 />
-                <span aria-hidden="true" className="pointer-events-none absolute -bottom-2 -right-2 size-full border border-[#9fbeca]/40" />
+                <span aria-hidden="true" className="pointer-events-none absolute -bottom-2 -right-2 size-full border border-accent/40" />
               </div>
-              <div className="space-y-4 text-base leading-7 text-[#c1c9c8]">
+              <div className="space-y-4 text-base leading-7 text-muted">
                 <p>
-                  I&apos;m a software developer at <span className="text-[#eee9df]">Datascience Sdn Bhd</span>, working across
+                  I&apos;m a software developer at <span className="text-paper">Datascience Sdn Bhd</span>, working across
                   the stack on financial management systems used by public institutions in Malaysia, from debugging production
                   issues and tuning SQL to building internal tools in React and Node.js.
                 </p>
@@ -139,7 +139,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <p className="mt-4 text-base leading-7 text-[#c1c9c8] sm:hidden">
+            <p className="mt-4 text-base leading-7 text-muted sm:hidden">
               Outside work I build side projects that blend full-stack engineering with AI. I care about interfaces that
               feel fast, clear and considered.
             </p>
@@ -147,8 +147,8 @@ export default function About() {
             <dl className="mt-10 grid grid-cols-3 border-y border-white/10">
               {stats.map((stat, i) => (
                 <div key={stat.label} className={`flex flex-col-reverse py-5 ${i ? 'border-l border-white/10 pl-5' : ''}`}>
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-[#aebbc0]">{stat.label}</dt>
-                  <dd className="mb-2 font-serif text-4xl font-light tabular-nums text-[#eee9df] md:text-5xl">{stat.value}</dd>
+                  <dt className="font-mono text-xs uppercase tracking-[0.14em] text-subtle">{stat.label}</dt>
+                  <dd className="mb-2 font-serif text-4xl font-light lining-nums tabular-nums text-paper md:text-5xl">{stat.value}</dd>
                 </div>
               ))}
             </dl>

@@ -31,7 +31,8 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="px-8 py-24 max-w-7xl mx-auto border-t border-white/10">
+    <section id="experience" className="border-t border-white/10 px-6 py-20 sm:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
       <SectionHeader
         index="05"
         eyebrow="Experience / Career"
@@ -51,20 +52,21 @@ export default function Experience() {
             className="flex flex-col md:flex-row gap-6 md:gap-16"
           >
             <div className="md:w-52 shrink-0">
-              <p className="text-base font-semibold text-[#eee9df]">{exp.role}</p>
-              <p className="text-base text-[#c1c9c8] mt-1">{exp.company}</p>
-              <p className="mt-2 font-mono text-xs uppercase tracking-wider text-[#9fbeca]">{exp.period}</p>
+              <p className="text-base font-semibold text-paper">{exp.role}</p>
+              <p className="text-base text-muted mt-1">{exp.company}</p>
+              <p className="mt-2 font-mono text-xs uppercase tracking-wider text-accent">{exp.period}</p>
             </div>
             <ul className="flex flex-col gap-3">
               {exp.points.map((point, j) => (
-                  <li key={j} className="text-base text-[#c1c9c8] flex gap-3 leading-relaxed">
-                  <span className="text-[#9fbeca] mt-0.5 shrink-0">—</span>
+                  <li key={j} className="text-base text-muted flex gap-3 leading-relaxed">
+                  <span className="text-accent mt-0.5 shrink-0">—</span>
                   {point}
                 </li>
               ))}
             </ul>
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   )

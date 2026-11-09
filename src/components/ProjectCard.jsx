@@ -10,20 +10,20 @@ const GRID = {
 /** Blueprint-style cover for projects without a screenshot yet. */
 function BlueprintPoster({ project, index }) {
   return (
-    <div className="relative flex h-full flex-col justify-between bg-[#152029] p-5" style={GRID}>
-      <div className="flex items-start justify-between font-mono text-[11px] uppercase tracking-[0.18em] text-[#9fbeca]">
+    <div className="relative flex h-full flex-col justify-between bg-ink-2 p-5" style={GRID}>
+      <div className="flex items-start justify-between font-mono text-xs uppercase tracking-[0.18em] text-accent">
         <span>FIG. {String(index + 1).padStart(2, '0')}</span>
         <span>{project.year}</span>
       </div>
       <div>
-        <p className="font-serif text-4xl font-light italic leading-none text-[#eee9df]/90">{project.title}</p>
+        <p className="font-serif text-4xl font-light italic leading-none text-paper/90">{project.title}</p>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {project.tech.slice(0, 4).map((t) => (
-            <span key={t} className="border border-[#9fbeca]/35 px-1.5 py-0.5 font-mono text-[11px] text-[#a9c0c9]">{t}</span>
+            <span key={t} className="border border-accent/35 px-1.5 py-0.5 font-mono text-xs text-accent-soft">{t}</span>
           ))}
         </div>
       </div>
-      <span aria-hidden="true" className="pointer-events-none absolute inset-3 border border-dashed border-[#9fbeca]/25" />
+      <span aria-hidden="true" className="pointer-events-none absolute inset-3 border border-dashed border-accent/25" />
     </div>
   )
 }
@@ -41,14 +41,14 @@ export default function ProjectCard({ project, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45 }}
-      className="group flex h-[460px] w-[min(82vw,340px)] shrink-0 snap-start flex-col overflow-hidden border border-white/10 bg-[#18232b] shadow-[0_12px_36px_rgba(0,0,0,0.22)] transition-colors hover:border-[#9fbeca]/40 md:h-[480px] md:w-[350px]"
+      className="group flex h-[460px] w-[min(82vw,340px)] shrink-0 snap-start flex-col overflow-hidden border border-white/10 bg-surface shadow-[0_12px_36px_rgba(0,0,0,0.22)] transition-colors hover:border-accent/40 md:h-[480px] md:w-[350px]"
     >
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Open ${project.title} ${project.live ? 'live site' : 'source code'} (new tab)`}
-        className="relative block h-40 shrink-0 overflow-hidden border-b border-white/10 bg-[#26343d] md:h-44"
+        className="relative block h-40 shrink-0 overflow-hidden border-b border-white/10 bg-surface-2 md:h-44"
         style={{ backgroundColor: project.color }}
       >
         {project.image ? (
@@ -62,21 +62,21 @@ export default function ProjectCard({ project, index }) {
         ) : (
           <BlueprintPoster project={project} index={index} />
         )}
-        <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#101820]/45 to-transparent" />
+        <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/45 to-transparent" />
       </a>
 
       <div className="flex min-h-0 flex-1 flex-col p-5">
-        <div className="mb-3 flex items-center justify-between font-mono text-xs tracking-widest text-[#9fbeca]">
+        <div className="mb-3 flex items-center justify-between font-mono text-xs tracking-widest text-accent">
           <span>{String(index + 1).padStart(2, '0')} / PROJECT</span>
           <span>{project.year}</span>
         </div>
-        <h3 id={`project-title-${project.id}`} className="font-serif text-3xl font-light leading-tight text-[#eee9df]">{project.title}</h3>
-        <p className="mt-1 truncate text-sm text-[#a9c0c9]">{project.subtitle}</p>
+        <h3 id={`project-title-${project.id}`} className="font-serif text-3xl font-light leading-tight text-paper">{project.title}</h3>
+        <p className="mt-1 truncate text-sm text-accent-soft">{project.subtitle}</p>
 
         <p
           id={descId}
           data-lenis-prevent={expanded || undefined}
-          className={`mt-3 text-sm leading-6 text-[#c1c9c8] ${expanded ? 'min-h-0 flex-1 overflow-y-auto pr-1' : 'line-clamp-3'}`}
+          className={`mt-3 text-sm leading-6 text-muted ${expanded ? 'min-h-0 flex-1 overflow-y-auto pr-1' : 'line-clamp-3'}`}
         >
           {project.description}
         </p>
@@ -85,18 +85,18 @@ export default function ProjectCard({ project, index }) {
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
           aria-controls={descId}
-          className="mt-1 self-start font-mono text-[11px] uppercase tracking-wider text-[#9fbeca] hover:text-[#eee9df]"
+          className="-my-2 mt-0 self-start py-3 font-mono text-xs uppercase tracking-wider text-accent hover:text-paper"
         >
           {expanded ? 'Less ↑' : 'More ↓'}
         </button>
 
         <div className="mt-auto flex items-end justify-between gap-3 pt-4">
-          <p className={`${expanded ? "" : "line-clamp-2"} max-w-[64%] font-mono text-[11px] leading-4 tracking-wide text-[#aebbc0]`}>
+          <p className={`${expanded ? "" : "line-clamp-2"} max-w-[64%] font-mono text-xs leading-4 tracking-wide text-subtle`}>
             {(expanded ? project.tech : project.tech.slice(0, 3)).join(' / ')}
           </p>
-          <div className="flex shrink-0 gap-3 text-xs text-[#d6d9d5]">
-            {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer" className="hover:text-[#9fbeca]">Live <span aria-hidden="true">↗</span><span className="sr-only">: {project.title} (new tab)</span></a>}
-            {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="hover:text-[#9fbeca]">Code <span aria-hidden="true">↗</span><span className="sr-only">: {project.title} on GitHub (new tab)</span></a>}
+          <div className="-my-3 flex shrink-0 gap-1 text-xs text-paper-dim">
+            {project.live && <a href={project.live} target="_blank" rel="noopener noreferrer" className="px-1.5 py-3 hover:text-accent">Live <span aria-hidden="true">↗</span><span className="sr-only">: {project.title} (new tab)</span></a>}
+            {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="px-1.5 py-3 hover:text-accent">Code <span aria-hidden="true">↗</span><span className="sr-only">: {project.title} on GitHub (new tab)</span></a>}
           </div>
         </div>
       </div>

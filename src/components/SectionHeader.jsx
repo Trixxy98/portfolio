@@ -14,17 +14,17 @@ export default function SectionHeader({ index, eyebrow, title, accent, descripti
       className={`flex flex-wrap items-end justify-between gap-7 ${className}`}
     >
       <div>
-        <p className="mb-5 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-[#9fbeca]">
+        <p className="mb-5 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-accent">
           <span className="tabular-nums">{index}</span>
-          <span aria-hidden="true" className="h-px w-8 bg-[#9fbeca]/50" />
+          <span aria-hidden="true" className="h-px w-8 bg-accent/50" />
           <span>{eyebrow}</span>
         </p>
-        <h2 id={id} className="max-w-xl font-serif text-5xl font-light leading-[1.05] text-[#eee9df] md:text-6xl">
+        <h2 id={id} className="max-w-xl font-serif text-5xl font-light leading-[1.05] text-paper md:text-6xl">
           {title}
-          {accent && <> <em className="text-[#a9c0c9]">{accent}</em></>}
+          {accent && <> <em className="text-accent-soft">{accent}</em></>}
         </h2>
         {description && (
-          <p className="mt-4 max-w-lg text-sm leading-7 text-[#c1c9c8] sm:text-base">{description}</p>
+          <p className="mt-4 max-w-lg text-sm leading-7 text-muted sm:text-base">{description}</p>
         )}
       </div>
       {children}

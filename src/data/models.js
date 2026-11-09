@@ -1,6 +1,4 @@
-// Shared so the loading screen can preload exactly the model the hero renders.
-export const SMALL_SCREEN_QUERY = '(max-width: 767px)'
-
-export function carModelUrl(isSmallScreen) {
-  return isSmallScreen ? '/models/f1-2026-concept-mobile.glb' : '/models/f1-2026-concept.glb'
-}
+// The hero car only renders on wide screens (xl and up), where it has room
+// beside the copy; below that (tablets, incl. iPad landscape) it overlaps the text.
+export const CAR_MIN_WIDTH_QUERY = '(min-width: 1280px)'
+export const CAR_MODEL_URL = '/models/f1-2026-concept.glb'

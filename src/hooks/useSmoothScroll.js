@@ -5,9 +5,6 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Height of the fixed ticker + navbar, so anchor jumps land below the header.
-const HEADER_OFFSET = -96
-
 let instance = null
 
 /** Lock or unlock page scrolling, e.g. while a full-screen menu is open. */
@@ -25,7 +22,9 @@ export function scrollToHash(hash) {
   const target = hash === '#top' ? 0 : document.querySelector(hash)
   if (target === null) return
   if (instance) {
-    instance.scrollTo(target, { offset: target === 0 ? 0 : HEADER_OFFSET })
+    // Lenis applies the target's CSS scroll-margin-top (see index.css), which
+    // clears the fixed navbar; adding an offset here would double it.
+    instance.scrollTo(target)
   } else if (target === 0) {
     window.scrollTo({ top: 0 })
   } else {
@@ -41,7 +40,7 @@ export function useSmoothScroll() {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      anchors: { offset: HEADER_OFFSET },
+      anchors: true,
     })
 
     instance = lenis

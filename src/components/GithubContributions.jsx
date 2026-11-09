@@ -93,7 +93,7 @@ export default function GithubContributions() {
   }
 
   return (
-    <section id="contributions" className="border-t border-white/10 px-5 py-20 sm:px-8 md:py-24" aria-labelledby="contributions-title">
+    <section id="contributions" className="border-t border-white/10 px-6 py-20 sm:px-8 md:py-24" aria-labelledby="contributions-title">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           index="03"
@@ -104,48 +104,48 @@ export default function GithubContributions() {
           description="A glimpse of my public GitHub contribution history, one day at a time."
           className="mb-10"
         >
-          <a href={`https://github.com/${USERNAME}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-b border-[#9fbeca]/60 pb-1 font-mono text-xs uppercase tracking-wider text-[#a9c0c9] transition-colors hover:border-white hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9fbeca]">
+          <a href={`https://github.com/${USERNAME}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-b border-accent/60 pt-3 pb-1 font-mono text-xs uppercase tracking-wider text-accent-soft transition-colors hover:border-white hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent">
             View GitHub profile <span aria-hidden="true">↗</span>
           </a>
         </SectionHeader>
 
-        <div className="contrib-panel relative overflow-hidden border border-white/10 bg-[#18232b] p-5 sm:p-8">
-          <div className="contrib-glow pointer-events-none absolute -right-32 -top-48 size-96 rounded-full bg-[#527f91]/15 blur-3xl" aria-hidden="true" />
+        <div className="contrib-panel relative overflow-hidden border border-white/10 bg-surface p-5 sm:p-8">
+          <div className="contrib-glow pointer-events-none absolute -right-32 -top-48 size-96 rounded-full bg-accent-deep/15 blur-3xl" aria-hidden="true" />
           <div className="relative flex flex-wrap items-center justify-between gap-5 border-b border-white/10 pb-6">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#9fbeca]">Contribution calendar / {year}</p>
-              <p className="mt-2 text-2xl font-light tabular-nums text-[#eee9df] sm:text-3xl" aria-live="polite">
-                {data ? data.total.toLocaleString() : '—'} <span className="text-sm text-[#aebbc0]">contributions in {year}</span>
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">Contribution calendar / {year}</p>
+              <p className="mt-2 text-2xl font-light tabular-nums text-paper sm:text-3xl" aria-live="polite">
+                {data ? data.total.toLocaleString() : '—'} <span className="text-sm text-subtle">contributions in {year}</span>
               </p>
             </div>
             <div className="flex flex-wrap gap-2" role="group" aria-label="Select contribution year">
               {years.map((option) => (
-                <button key={option} type="button" onClick={() => changeYear(option)} aria-pressed={year === option} className={`min-w-14 border px-3 py-2 font-mono text-xs tabular-nums transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9fbeca] ${year === option ? 'border-[#9fbeca] bg-[#29404a] text-[#eee9df]' : 'border-white/15 text-[#c1c9c8] hover:border-[#9fbeca] hover:text-white'}`}>{option}</button>
+                <button key={option} type="button" onClick={() => changeYear(option)} aria-pressed={year === option} className={`min-w-14 border px-3 py-2 font-mono text-xs tabular-nums transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${year === option ? 'border-accent bg-accent-dim text-paper' : 'border-white/15 text-muted hover:border-accent hover:text-white'}`}>{option}</button>
               ))}
             </div>
           </div>
 
           {result.status === 'loading' && (
-            <div role="status" className="flex min-h-56 items-center justify-center gap-3 font-mono text-sm text-[#c1c9c8]">
-              <span className="size-2 rounded-full bg-[#9fbeca] motion-safe:animate-pulse" aria-hidden="true" /> Loading GitHub activity…
+            <div role="status" className="flex min-h-56 items-center justify-center gap-3 font-mono text-sm text-muted">
+              <span className="size-2 rounded-full bg-accent motion-safe:animate-pulse" aria-hidden="true" /> Loading GitHub activity…
             </div>
           )}
           {result.status === 'error' && (
             <div role="status" className="flex min-h-56 flex-col items-center justify-center gap-4 text-center">
-              <p className="text-sm text-[#c1c9c8]">GitHub activity isn&apos;t available right now.</p>
-              <button type="button" onClick={() => { setResult({ status: 'loading', data: null }); setRetry((value) => value + 1) }} className="border border-[#9fbeca]/50 px-4 py-2 font-mono text-xs text-[#a9c0c9] hover:bg-[#29404a] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#9fbeca]">Try again</button>
+              <p className="text-sm text-muted">GitHub activity isn&apos;t available right now.</p>
+              <button type="button" onClick={() => { setResult({ status: 'loading', data: null }); setRetry((value) => value + 1) }} className="border border-accent/50 px-4 py-2 font-mono text-xs text-accent-soft hover:bg-accent-dim focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent">Try again</button>
             </div>
           )}
           {data && (
             <>
-              <p className="mt-5 font-mono text-[11px] text-[#aebbc0] sm:hidden">Swipe to explore the year →</p>
+              <p className="mt-5 font-mono text-xs text-subtle sm:hidden">Swipe to explore the year →</p>
               <div className="contrib-scroll mt-5 overflow-x-auto pb-5" tabIndex={0} role="region" aria-label="Scrollable contribution calendar">
-                <div className="contrib-calendar mx-auto w-max text-[#c1c9c8]">
+                <div className="contrib-calendar mx-auto w-max text-muted">
                   <div className="contrib-months" style={{ '--weeks': weeks.length }} aria-hidden="true">
                     {months.map(({ label, week }) => <span key={label} style={{ gridColumn: week + 1 }}>{label}</span>)}
                   </div>
                   <div className="flex gap-3">
-                    <div className="contrib-weekdays font-mono text-[10px] text-[#aebbc0]" aria-hidden="true">{weekdays.map((day, index) => <span key={day}>{index % 2 ? day : ''}</span>)}</div>
+                    <div className="contrib-weekdays font-mono text-[10px] text-subtle" aria-hidden="true">{weekdays.map((day, index) => <span key={day}>{index % 2 ? day : ''}</span>)}</div>
                     <div className="contrib-board" role="img" tabIndex={0} onKeyDown={handleGridKeyDown} onFocus={() => setSelected((value) => value || latest.date)} aria-label={`${data.total.toLocaleString()} contributions in ${year}. Use arrow keys to explore days; Home and End go to the first and last day.`}>
                       {weeks.map((week, weekIndex) => (
                         <div className="contrib-week" key={weekIndex} style={{ '--delay': `${Math.min(weekIndex, 45) * 12}ms` }}>
@@ -159,18 +159,18 @@ export default function GithubContributions() {
                 </div>
               </div>
               <div className="relative flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5">
-                <p className="font-mono text-xs text-[#c1c9c8]" aria-live="polite" aria-atomic="true">
-                  <span className="text-[#a9c0c9]">{activeDay && formatDate(activeDay.date)}</span>
-                  <span className="mx-2 text-[#aebbc0]">/</span>{activeDay?.count} {activeDay?.count === 1 ? 'contribution' : 'contributions'}
+                <p className="font-mono text-xs text-muted" aria-live="polite" aria-atomic="true">
+                  <span className="text-accent-soft">{activeDay && formatDate(activeDay.date)}</span>
+                  <span className="mx-2 text-subtle">/</span>{activeDay?.count} {activeDay?.count === 1 ? 'contribution' : 'contributions'}
                 </p>
-                <div className="flex items-center gap-1.5 font-mono text-[11px] text-[#aebbc0]" aria-label="Color intensity: less to more activity">
+                <div className="flex items-center gap-1.5 font-mono text-xs text-subtle" aria-label="Color intensity: less to more activity">
                   <span className="mr-1">Less</span>{levels.map((label, level) => <span key={label} className={`contrib-legend contrib-level-${level}`} title={label} aria-hidden="true" />)}<span className="ml-1">More</span>
                 </div>
               </div>
             </>
           )}
         </div>
-        <p className="mt-4 font-mono text-[11px] leading-5 text-[#aebbc0]">Public GitHub contributions via <a className="underline underline-offset-2 hover:text-[#eee9df]" href="https://github-contributions-api.jogruber.de/" target="_blank" rel="noopener noreferrer">github-contributions-api.jogruber.de</a>. Counts may differ from private activity or update with a delay.</p>
+        <p className="mt-4 font-mono text-xs leading-5 text-subtle">Public GitHub contributions via <a className="underline underline-offset-2 hover:text-paper" href="https://github-contributions-api.jogruber.de/" target="_blank" rel="noopener noreferrer">github-contributions-api.jogruber.de</a>. Counts may differ from private activity or update with a delay.</p>
       </div>
     </section>
   )

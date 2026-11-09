@@ -54,15 +54,13 @@ export default function Navbar() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className={`relative z-50 px-6 md:px-8 py-4 flex items-center justify-between transition-all duration-300 ${
-          scrolled || isOpen ? 'bg-[#101820]/92 backdrop-blur-sm border-b border-white/10' : 'bg-transparent'
+        className={`relative z-50 px-6 sm:px-8 py-4 transition-all duration-300 ${
+          scrolled || isOpen ? 'bg-ink/92 backdrop-blur-sm border-b border-white/10' : 'bg-transparent'
         }`}
       >
-        <a href="#top" onClick={(e) => goTo(e, '#top')} className="flex items-center gap-3" aria-label="Harith Fakrullah, back to top">
-          <span className="text-sm font-medium tracking-tight text-[#eee9df]">Harith Fakrullah</span>
-          <span className="text-[#aebbc0] text-[11px] font-mono tracking-widest hidden md:block">
-            SYS/OK
-          </span>
+        <div className="mx-auto flex max-w-7xl items-center justify-between">
+        <a href="#top" onClick={(e) => goTo(e, '#top')} className="-my-3 py-3 text-sm font-medium tracking-tight text-paper" aria-label="Harith Fakrullah, back to top">
+          Harith Fakrullah
         </a>
 
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
@@ -71,14 +69,14 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(e) => goTo(e, link.href)}
-              className={`text-sm text-[#c1c9c8] hover:text-white transition-colors ${link.wide ? 'hidden lg:inline' : ''}`}
+              className={`-my-3 py-3 text-sm text-muted hover:text-white transition-colors ${link.wide ? 'hidden lg:inline-block' : 'inline-block'}`}
             >
               <ScrambleText text={link.label} />
             </a>
           ))}
           <MagneticButton
             href="mailto:harithfakrullah@gmail.com"
-            className="text-sm px-4 py-2 border border-white/20 rounded-full hover:bg-[#eee9df] hover:text-[#101820] hover:border-[#eee9df] transition-all duration-200"
+            className="text-sm px-4 py-2 border border-white/20 hover:bg-paper hover:text-ink hover:border-paper transition-all duration-200"
           >
             <ScrambleText text="Get in touch" />
           </MagneticButton>
@@ -88,24 +86,25 @@ export default function Navbar() {
           ref={toggleRef}
           type="button"
           onClick={() => setIsOpen((open) => !open)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden -mr-2 flex size-11 flex-col items-center justify-center gap-1.5"
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
         >
           <motion.span
             animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 8 : 0 }}
-            className="block w-6 h-px bg-[#eee9df] origin-center"
+            className="block w-6 h-px bg-paper origin-center"
           />
           <motion.span
             animate={{ opacity: isOpen ? 0 : 1 }}
-            className="block w-6 h-px bg-[#eee9df]"
+            className="block w-6 h-px bg-paper"
           />
           <motion.span
             animate={{ rotate: isOpen ? -45 : 0, y: isOpen ? -8 : 0 }}
-            className="block w-6 h-px bg-[#eee9df] origin-center"
+            className="block w-6 h-px bg-paper origin-center"
           />
         </button>
+        </div>
       </motion.nav>
 
       <AnimatePresence>
@@ -116,19 +115,19 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#101820] text-[#eee9df] flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 z-40 bg-ink text-paper flex flex-col items-center justify-center gap-8"
           >
             {LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => goTo(e, link.href)}
-                className="font-serif text-4xl font-light text-[#eee9df] hover:text-[#9fbeca] transition-colors"
+                className="font-serif text-4xl font-light text-paper hover:text-accent transition-colors"
               >
                 {link.label}
               </a>
             ))}
-            <a href="mailto:harithfakrullah@gmail.com" onClick={() => setIsOpen(false)} className="mt-4 text-sm px-6 py-3 border border-white/20 rounded-full hover:bg-[#eee9df] hover:text-[#101820] transition-all duration-200">
+            <a href="mailto:harithfakrullah@gmail.com" onClick={() => setIsOpen(false)} className="mt-4 text-sm px-6 py-3 border border-white/20 hover:bg-paper hover:text-ink transition-all duration-200">
               Get in touch
             </a>
           </motion.div>

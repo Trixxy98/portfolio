@@ -1,9 +1,7 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import ProjectCard from './ProjectCard'
 import SectionHeader from './SectionHeader'
 import { projects } from '../data/projects'
-
-const WorkspaceVisual = lazy(() => import('./Workspace'))
 
 export default function SelectedWork() {
   const railRef = useRef(null)
@@ -60,35 +58,30 @@ export default function SelectedWork() {
   }
 
   return (
-    <section id="work" className="border-t border-white/10 px-8 py-20 md:py-24">
+    <section id="work" className="border-t border-white/10 px-6 py-20 sm:px-8 md:py-24">
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-3 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-8">
-          <SectionHeader
+        <SectionHeader
             index="01"
             eyebrow={`Selected Work / ${String(projects.length).padStart(2, '0')} projects`}
             title="Built to"
             accent="make an impact."
             description="A collection of things I've designed, built and shipped."
           />
-          <Suspense fallback={<div className="h-[280px] border border-white/10 sm:h-[320px] md:h-[340px] lg:h-[380px]" />}>
-            <WorkspaceVisual />
-          </Suspense>
-        </div>
 
         <div className="mt-10 flex items-center justify-between gap-4 border-t border-white/10 pt-6">
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#c1c9c8]">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">
             Explore projects <span className="hidden sm:inline">/ scroll to browse</span>
           </p>
           <div className="flex items-center gap-3">
-            <span className="mr-2 font-mono text-xs tabular-nums text-[#a9c0c9]">
+            <span className="mr-2 whitespace-nowrap font-mono text-xs tabular-nums text-accent-soft">
               {String(projects.length ? position.index + 1 : 0).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
             </span>
-            <button type="button" onClick={() => move(-1)} disabled={!position.canPrev} aria-label="Previous project" className="flex size-9 items-center justify-center border border-white/20 text-[#eee9df] transition-colors hover:border-[#9fbeca] disabled:cursor-not-allowed disabled:opacity-30">←</button>
-            <button type="button" onClick={() => move(1)} disabled={!position.canNext} aria-label="Next project" className="flex size-9 items-center justify-center border border-white/20 text-[#eee9df] transition-colors hover:border-[#9fbeca] disabled:cursor-not-allowed disabled:opacity-30">→</button>
+            <button type="button" onClick={() => move(-1)} disabled={!position.canPrev} aria-label="Previous project" className="flex size-11 items-center justify-center border border-white/20 text-paper transition-colors hover:border-accent disabled:cursor-not-allowed disabled:opacity-30">←</button>
+            <button type="button" onClick={() => move(1)} disabled={!position.canNext} aria-label="Next project" className="flex size-11 items-center justify-center border border-white/20 text-paper transition-colors hover:border-accent disabled:cursor-not-allowed disabled:opacity-30">→</button>
           </div>
         </div>
 
-        <div ref={railRef} role="list" aria-label="Projects" tabIndex={0} className="project-rail mt-6 flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pb-3 outline-none focus-visible:ring-1 focus-visible:ring-[#9fbeca]">
+        <div ref={railRef} role="list" aria-label="Projects" tabIndex={0} className="project-rail relative mt-6 flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pb-3 outline-none focus-visible:ring-1 focus-visible:ring-accent">
           {projects.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
@@ -102,11 +95,11 @@ export default function SelectedWork() {
               onClick={() => goTo(i)}
               aria-label={`Go to ${project.title}`}
               aria-current={position.index === i ? 'true' : undefined}
-              className="group flex h-6 items-center"
+              className="group flex h-11 min-w-6 items-center justify-center"
             >
               <span
                 className={`block h-px transition-all duration-300 ${
-                  position.index === i ? 'w-8 bg-[#eee9df]' : 'w-4 bg-white/25 group-hover:bg-[#9fbeca]'
+                  position.index === i ? 'w-8 bg-paper' : 'w-4 bg-white/25 group-hover:bg-accent'
                 }`}
               />
             </button>

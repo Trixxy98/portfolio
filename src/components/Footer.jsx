@@ -39,7 +39,7 @@ function CopyEmailButton() {
     <button
       type="button"
       onClick={copy}
-      className="inline-flex items-center gap-2 border border-white/15 px-3 py-1.5 font-mono text-xs uppercase tracking-wider text-[#c1c9c8] transition-colors hover:border-[#9fbeca] hover:text-[#eee9df]"
+      className="inline-flex items-center gap-2 border border-white/15 px-4 py-3 font-mono text-xs uppercase tracking-wider text-muted transition-colors hover:border-accent hover:text-paper"
     >
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
         {copied
@@ -53,8 +53,9 @@ function CopyEmailButton() {
 
 export default function Footer() {
   return (
-    <footer className="mx-auto max-w-[1400px] border-t border-white/10 px-8 pt-20 pb-10">
+    <footer className="border-t border-white/10 px-6 pt-20 pb-10 sm:px-8">
       <motion.div
+        className="mx-auto max-w-7xl"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -64,18 +65,18 @@ export default function Footer() {
         <ScrambleText
             text="Let's work together"
             as="p"
-            className="text-base uppercase tracking-widest text-[#aebbc0] mb-4 cursor-default md:text-lg"
+            className="text-base uppercase tracking-widest text-subtle mb-4 cursor-default md:text-lg"
           />
 
         {/* Email + portrait */}
         <div className="flex items-center gap-4 pb-6 md:gap-8">
           <a
             href={`mailto:${EMAIL}`}
-            className="min-w-0 flex-1 break-words font-serif text-[clamp(1.25rem,5vw,2.4rem)] font-light leading-none tracking-tight text-[#eee9df] transition-colors duration-300 hover:text-[#9fbeca] md:text-[clamp(2rem,5vw,5.5rem)]"
+            className="min-w-0 flex-1 break-words font-serif text-[clamp(1.25rem,5vw,2.4rem)] font-light leading-none tracking-tight text-paper transition-colors duration-300 hover:text-accent md:text-[clamp(2rem,5vw,5.5rem)]"
           >
             harithfakrullah<wbr />@gmail.com
           </a>
-          <div className="size-20 shrink-0 overflow-hidden rounded-full border border-[#9fbeca]/50 bg-[#18232b] p-1 shadow-[0_8px_24px_rgba(0,0,0,0.3)] md:size-28 lg:size-36">
+          <div className="size-20 shrink-0 overflow-hidden rounded-full border border-accent/50 bg-surface p-1 shadow-[0_8px_24px_rgba(0,0,0,0.3)] md:size-28 lg:size-36">
             <img
               src="/photo.webp"
               alt=""
@@ -87,10 +88,10 @@ export default function Footer() {
         <CopyEmailButton />
 
         {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mt-8 text-sm text-[#aebbc0]">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mt-8 text-sm text-subtle">
           <div className="flex flex-wrap items-center gap-4">
             <span>Designed &amp; built by Harith Fakrullah</span>
-            <span className="hidden md:block text-[#84949b]">·</span>
+            <span className="hidden md:block text-faint">·</span>
             <span className="font-mono tabular-nums">
               Rembau, <LiveClock />
             </span>
@@ -101,7 +102,7 @@ export default function Footer() {
               href="https://linkedin.com/in/harithfakrullah/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 border border-white/15 rounded-full hover:border-[#9fbeca] hover:text-[#9fbeca] transition-all duration-200"
+              className="flex items-center gap-1.5 px-4 py-2.5 border border-white/15 hover:border-accent hover:text-accent transition-all duration-200"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
@@ -113,7 +114,7 @@ export default function Footer() {
               href="https://github.com/Trixxy98"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 border border-white/15 rounded-full hover:border-[#9fbeca] hover:text-[#9fbeca] transition-all duration-200"
+              className="flex items-center gap-1.5 px-4 py-2.5 border border-white/15 hover:border-accent hover:text-accent transition-all duration-200"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
@@ -122,9 +123,9 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <p className="mt-6 text-[11px] text-[#aebbc0]">
-          3D car: <a href="https://sketchfab.com/3d-models/f1-2026-concept-polygon-model-ea3bde709b1e4dc9b0ec8557d106ed42" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-[#d6d9d5]">F1 2026 concept by Qvist_designs</a>
-          {' · '}<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-[#d6d9d5]">CC BY 4.0</a>
+        <p className="mt-6 text-xs text-subtle">
+          3D car: <a href="https://sketchfab.com/3d-models/f1-2026-concept-polygon-model-ea3bde709b1e4dc9b0ec8557d106ed42" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-paper-dim">F1 2026 concept by Qvist_designs</a>
+          {' · '}<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-paper-dim">CC BY 4.0</a>
           {' · '}Optimised and restyled for this site.
         </p>
       </motion.div>

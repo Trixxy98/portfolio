@@ -80,7 +80,8 @@ const categories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="px-8 py-24 max-w-7xl mx-auto border-t border-white/10">
+    <section id="skills" className="border-t border-white/10 px-6 py-20 sm:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
       <SectionHeader
         index="04"
         eyebrow="Skills / Stack"
@@ -99,7 +100,7 @@ export default function Skills() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: ci * 0.1 }}
           >
-            <p className="mb-5 border-b border-white/10 pb-3 font-mono text-xs uppercase tracking-[0.18em] text-[#9fbeca]">
+            <p className="mb-5 border-b border-white/10 pb-3 font-mono text-xs uppercase tracking-[0.18em] text-accent">
               {cat.label}
             </p>
             <ul className="flex flex-col gap-4">
@@ -118,9 +119,9 @@ export default function Skills() {
                     <Icon
                       size={18}
                       aria-hidden="true"
-                      className="shrink-0 text-[#aebbc0] transition-colors duration-200 group-hover:text-[var(--brand)]"
+                      className="shrink-0 text-subtle transition-colors duration-200 group-hover:text-[var(--brand)]"
                     />
-                    <span className="text-base text-[#d6d9d5] transition-colors duration-200 group-hover:text-[#eee9df]">
+                    <span className="text-base text-paper-dim transition-colors duration-200 group-hover:text-paper">
                       {skill.name}
                     </span>
                   </motion.li>
@@ -129,6 +130,7 @@ export default function Skills() {
             </ul>
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   )

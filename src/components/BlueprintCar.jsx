@@ -1,8 +1,9 @@
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react'
+import { useMediaQuery } from '../hooks/useMediaQuery'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 import * as THREE from 'three'
-import { carModelUrl, SMALL_SCREEN_QUERY } from '../data/models'
+import { CAR_MODEL_URL } from '../data/models'
 
 const LOOK = new THREE.Vector3(0.2, -0.08, 0)
 const CAMERA_AIM = new THREE.Vector3()
@@ -10,26 +11,14 @@ const LINE = '#9fbeca'
 const FILL = '#29404a'
 const REAL_HOLD = 0.8
 const TRANSITION_DURATION = 2.4
+// How far the camera aims to the left of the car, pushing it right of the copy.
+const AIM_OFFSET = 1.15
 
 function labelFor(angle) {
   const a = Math.abs(angle)
   if (a < 0.85) return 'AERODYNAMICS'
   if (a < 2.25) return 'SUSPENSION'
   return 'POWER UNIT'
-}
-
-function useMediaQuery(query) {
-  const [matches, setMatches] = useState(() =>
-    typeof window !== 'undefined' && window.matchMedia(query).matches,
-  )
-  useEffect(() => {
-    const media = window.matchMedia(query)
-    const apply = () => setMatches(media.matches)
-    apply()
-    media.addEventListener('change', apply)
-    return () => media.removeEventListener('change', apply)
-  }, [query])
-  return matches
 }
 
 function prepareCar(root, staticMode) {
@@ -96,8 +85,8 @@ function setCarTransition(layers, progress) {
   }
 }
 
-function CarModel({ isSmallScreen, staticMode, introComplete }) {
-  const gltf = useLoader(GLTFLoader, carModelUrl(isSmallScreen))
+function CarModel({ staticMode }) {
+  const gltf = useLoader(GLTFLoader, CAR_MODEL_URL)
   const { root: model, layers } = useMemo(() => {
     const root = gltf.scene.clone(true)
     // The supplied model is millimetre-scale and points along X, while the
@@ -111,7 +100,7 @@ function CarModel({ isSmallScreen, staticMode, introComplete }) {
   useEffect(() => { transitionStart.current = null }, [model])
 
   useFrame((state) => {
-    if (staticMode || !introComplete) return
+    if (staticMode) return
     if (transitionStart.current === null) transitionStart.current = state.clock.elapsedTime
     const t = THREE.MathUtils.clamp(
       (state.clock.elapsedTime - transitionStart.current - REAL_HOLD) / TRANSITION_DURATION,
@@ -194,7 +183,7 @@ function Scan({ active }) {
   )
 }
 
-function Rig({ pointer, staticMode, isSmallScreen, onLabel }) {
+function Rig({ pointer, staticMode, onLabel }) {
   const announced = useRef('')
 
   useFrame((state) => {
@@ -214,11 +203,10 @@ function Rig({ pointer, staticMode, isSmallScreen, onLabel }) {
     }
 
     const angle = Math.atan2(state.camera.position.x - target.x, state.camera.position.z - target.z)
-    const offset = isSmallScreen ? 0 : 0.8
     CAMERA_AIM.set(
-      target.x - Math.cos(angle) * offset,
-      target.y + (isSmallScreen ? 0.65 : 0.18),
-      target.z + Math.sin(angle) * offset,
+      target.x - Math.cos(angle) * AIM_OFFSET,
+      target.y + 0.18,
+      target.z + Math.sin(angle) * AIM_OFFSET,
     )
     state.camera.lookAt(CAMERA_AIM)
     if (staticMode) {
@@ -234,7 +222,7 @@ function Rig({ pointer, staticMode, isSmallScreen, onLabel }) {
   return null
 }
 
-function Scene({ pointer, staticMode, isSmallScreen, introComplete, onLabel }) {
+function Scene({ pointer, staticMode, onLabel }) {
   return (
     <>
       <fog attach="fog" args={['#101820', 12, 22]} />
@@ -242,21 +230,20 @@ function Scene({ pointer, staticMode, isSmallScreen, introComplete, onLabel }) {
       <directionalLight position={[3, 6, 5]} intensity={2.2} color="#d6e9ff" />
       <directionalLight position={[-3, 2, -4]} intensity={0.8} color="#5a9fd3" />
       <gridHelper args={[22, 44, '#38505b', '#263943']} position={[LOOK.x, -0.63, 0]} />
-      {!isSmallScreen && <MeasurementGuides />}
+      <MeasurementGuides />
       <Suspense fallback={null}>
-        <group position={LOOK.toArray()} scale={isSmallScreen ? 0.34 : 0.6}>
-          <CarModel isSmallScreen={isSmallScreen} staticMode={staticMode} introComplete={introComplete} />
+        <group position={LOOK.toArray()} scale={0.6}>
+          <CarModel staticMode={staticMode} />
           <Scan active={!staticMode} />
         </group>
       </Suspense>
-      <Rig pointer={pointer} staticMode={staticMode} isSmallScreen={isSmallScreen} onLabel={onLabel} />
+      <Rig pointer={pointer} staticMode={staticMode} onLabel={onLabel} />
     </>
   )
 }
 
-export default function BlueprintCar({ introComplete = true }) {
+export default function BlueprintCar() {
   const staticMode = useMediaQuery('(prefers-reduced-motion: reduce)')
-  const isSmallScreen = useMediaQuery(SMALL_SCREEN_QUERY)
   const pointer = useRef({ x: 0, y: 0 })
   const [label, setLabel] = useState('AERODYNAMICS')
 
@@ -273,9 +260,9 @@ export default function BlueprintCar({ introComplete = true }) {
   return (
     <div className="pointer-events-none absolute inset-x-0 top-0 h-screen">
       <Canvas
-        camera={{ position: [4.2, 1.2, 6.4], fov: isSmallScreen ? 40 : 30 }}
+        camera={{ position: [4.2, 1.2, 6.4], fov: 30 }}
         gl={{ antialias: true, alpha: true }}
-        dpr={isSmallScreen ? 1 : [1, 1.5]}
+        dpr={[1, 1.5]}
         frameloop={staticMode ? 'demand' : 'always'}
         style={{ width: '100%', height: '100%' }}
         onCreated={({ gl, camera }) => {
@@ -283,12 +270,15 @@ export default function BlueprintCar({ introComplete = true }) {
           camera.lookAt(LOOK)
         }}
       >
-        <Scene pointer={pointer} staticMode={staticMode} isSmallScreen={isSmallScreen} introComplete={introComplete} onLabel={setLabel} />
+        <Scene pointer={pointer} staticMode={staticMode} onLabel={setLabel} />
       </Canvas>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,rgba(16,24,32,0.72)_0%,transparent_58%)]" />
-      <p className="absolute top-28 right-8 font-mono text-[11px] tracking-[0.28em] text-[#9fbeca]">
-        {label}
-      </p>
+      {/* Aligned to the same max-w-7xl container as the hero copy. */}
+      <div className="absolute inset-x-0 top-28 px-6 sm:px-8">
+        <p className="mx-auto max-w-7xl text-right font-mono text-[11px] tracking-[0.28em] text-accent">
+          {label}
+        </p>
+      </div>
     </div>
   )
 }

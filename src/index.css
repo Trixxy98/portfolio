@@ -4,47 +4,41 @@
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-serif: 'Cormorant Garamond', serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Surfaces, darkest first. */
+  --color-ink: #101820;
+  --color-ink-2: #152029;
+  --color-surface: #18232b;
+  --color-surface-2: #26343d;
+
+  /* Text, strongest first. */
+  --color-paper: #eee9df;
+  --color-paper-dim: #d6d9d5;
+  --color-muted: #c1c9c8;
+  --color-subtle: #aebbc0;
+  --color-faint: #84949b;
+
+  /* Accent (steel blue). */
+  --color-accent: #9fbeca;
+  --color-accent-soft: #a9c0c9;
+  --color-accent-deep: #527f91;
+  --color-accent-dim: #29404a;
 }
 
 * {
   box-sizing: border-box;
 }
 
-/* Clear the fixed ticker + navbar when jumping to an anchor. */
+/* Clear the fixed navbar when jumping to an anchor. */
 section[id] {
-  scroll-margin-top: 6rem;
-}
-
-/* Only hide the native cursor while the custom cursor is mounted. */
-html.has-custom-cursor,
-html.has-custom-cursor * {
-  cursor: none !important;
+  scroll-margin-top: 5rem;
 }
 
 body {
   margin: 0;
-  background-color: #101820;
-  color: #eee9df;
+  background-color: var(--color-ink);
+  color: var(--color-paper);
   -webkit-font-smoothing: antialiased;
-}
-
-@keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.ticker-track {
-  animation: ticker-scroll 32s linear infinite;
-}
-
-.scanlines {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 2px,
-    rgba(0, 0, 0, 0.35) 2px,
-    rgba(0, 0, 0, 0.35) 3px
-  );
 }
 
 .project-rail {
@@ -57,7 +51,7 @@ body {
 
 /* Visible keyboard focus everywhere, without affecting mouse clicks. */
 :where(a, button, [tabindex]):focus-visible {
-  outline: 2px solid #9fbeca;
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
 }
 
@@ -67,8 +61,8 @@ body {
   left: 0.75rem;
   z-index: 300;
   padding: 0.6rem 1rem;
-  background: #eee9df;
-  color: #101820;
+  background: var(--color-paper);
+  color: var(--color-ink);
   font: 500 0.875rem/1 var(--font-sans);
   transform: translateY(-200%);
   transition: transform 0.2s;
@@ -79,10 +73,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ticker-track {
-    animation: none;
-  }
-
   *,
   *::before,
   *::after {

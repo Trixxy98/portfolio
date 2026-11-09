@@ -71,11 +71,11 @@ function buildIco(pngs) {
 function ogSvg(mark) {
   return Buffer.from(`
 <svg xmlns="http://www.w3.org/2000/svg" width="${OG.width}" height="${OG.height}">
-  <rect width="${OG.width}" height="${OG.height}" fill="#0b0b0b"/>
-  <rect x="0" y="0" width="${OG.width}" height="6" fill="#7C3AED"/>
+  <rect width="${OG.width}" height="${OG.height}" fill="#0a0a0a"/>
   ${mark}
   <text x="90" y="330" fill="#ffffff" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="82" font-weight="600">${OG.name}</text>
-  <text x="90" y="400" fill="#A78BFA" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="40" font-weight="400">${OG.role}</text>
+  <text x="90" y="400" fill="#a3a3a3" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="40" font-weight="400">${OG.role}</text>
+  <rect x="90" y="470" width="48" height="2" fill="#404040"/>
   <text x="90" y="530" fill="#737373" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="30" font-weight="400">${OG.url}</text>
 </svg>`)
 }
@@ -96,9 +96,13 @@ async function main() {
   console.log(`✓ favicon.ico (${ICO_SIZES.join(', ')})`)
 
   // Re-embed the mark in the OG card so it stays in sync with favicon.svg.
+  // The card is black, so use the inverted (white tile, black mark) colourway.
   const mark = svg
     .toString()
     .replace(/<\?xml[^>]*\?>/, '')
+    .replace(/<style>[\s\S]*?<\/style>/, '')
+    .replace('class="tile" width="64" height="64" rx="14" fill="#0a0a0a"', 'width="64" height="64" rx="14" fill="#ffffff"')
+    .replace('class="mark" fill="#ffffff"', 'fill="#0a0a0a"')
     .replace(/<svg[^>]*>/, '<svg x="90" y="90" width="96" height="96" viewBox="0 0 64 64">')
 
   await sharp(ogSvg(mark)).png({ compressionLevel: 9 }).toFile(join(publicDir, OG.file))
