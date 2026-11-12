@@ -2,13 +2,13 @@ import { motion } from 'framer-motion'
 import {
   SiReact, SiTypescript, SiJavascript, SiTailwindcss,
   SiGreensock, SiNodedotjs, SiExpress, SiPython, SiFastapi,
-  SiDotnet, SiPhp, SiScikitlearn, SiNumpy, SiPandas, SiScipy,
+  SiDotnet, SiPhp,
   SiOpenai, SiClaude, SiGooglegemini, SiMediapipe,
   SiPostgresql, SiMysql, SiPrisma, SiMongodb,
   SiRedis, SiFirebase, SiDocker, SiGithubactions, SiTerraform,
   SiCloudflare, SiRailway, SiVercel, SiGit, SiStripe,
 } from 'react-icons/si'
-import { TbSparkles } from 'react-icons/tb'
+import { TbRobot, TbSparkles } from 'react-icons/tb'
 import SectionHeader from './SectionHeader'
 
 const categories = [
@@ -34,16 +34,14 @@ const categories = [
     ],
   },
   {
-    label: 'AI / ML',
+    label: 'AI & LLM',
     skills: [
-      { name: 'scikit-learn', icon: SiScikitlearn, color: '#F7931E' },
-      { name: 'NumPy', icon: SiNumpy, color: '#4DABCF' },
-      { name: 'pandas', icon: SiPandas, color: '#E70488' },
-      { name: 'SciPy', icon: SiScipy, color: '#8CAAE6' },
       { name: 'OpenAI', icon: SiOpenai, color: '#d6d9d5' },
       { name: 'Claude', icon: SiClaude, color: '#D97757' },
       { name: 'Gemini', icon: SiGooglegemini, color: '#8E75B2' },
       { name: 'Groq', icon: TbSparkles, color: '#F55036' },
+      // Nous Research's Hermes models (react-icons' SiHermes is the fashion brand).
+      { name: 'Hermes', icon: TbRobot, color: '#d6d9d5' },
       { name: 'MediaPipe', icon: SiMediapipe, color: '#0097A7' },
     ],
   },

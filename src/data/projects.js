@@ -9,7 +9,7 @@ export const projects = [
       tech: ['React', 'C#', '.NET', 'PostgreSQL', 'Redis', 'Docker'],
       github: 'https://github.com/Trixxy98/AegisOps---DevSecOps-AI-Control-Plane',
       live: null,
-      image: null,
+      image: '/aegisops.webp',
       color: '#101014',
     },
     {

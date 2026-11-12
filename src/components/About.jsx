@@ -31,7 +31,7 @@ const services = [
   {
     num: '03',
     title: 'AI & LLM Integration',
-    desc: 'Shipping AI features with OpenAI, Groq, Claude, and Gemini — structured output, function calling, and on-device inference with MediaPipe for real-time analysis.',
+    desc: 'Shipping AI features with OpenAI, Claude, Groq, and Gemini — structured output, function calling, and on-device inference with MediaPipe for real-time analysis.',
   },
   {
     num: '04',
