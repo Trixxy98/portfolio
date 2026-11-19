@@ -22,15 +22,14 @@ Live at: https://www.harithfakrullah.dev/
 
 ## Features
 
-- Animated loading/intro screen with F1 team logos
+- Prerendered HTML (fast first paint, crawlable content)
 - GSAP word-by-word hero text reveal
-- Canvas-based animated star particle background
+- 3D Porsche 911 GT3 RS that morphs into a blueprint wireframe (desktop only, loaded after first paint)
 - Lenis smooth scroll integrated with GSAP ScrollTrigger
-- Custom cursor with mix-blend-difference effect
 - Scroll progress indicator
 - Responsive navbar with hamburger menu
 - Project cards with live/GitHub links
-- Horizontally browsable Selected Work with a 3D workspace preview
+- Horizontally browsable Selected Work
 - Tech skills with brand-color icons
 - Work experience timeline
 - Footer with live clock
@@ -92,4 +91,4 @@ src/
 
 ## 3D Model Credit
 
-The hero uses [F1 2026 concept (polygon model)](https://sketchfab.com/3d-models/f1-2026-concept-polygon-model-ea3bde709b1e4dc9b0ec8557d106ed42) by [Qvist_designs](https://sketchfab.com/Qvist_Designs), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The original model was simplified for desktop and mobile web use, resized and rotated, and restyled as a blueprint hologram. The original file is not included.
+The hero uses [Porsche 911 GT3 RS (992) '23](https://sketchfab.com/3d-models/porsche-911-gt3-rs-992-23-99c74d8fa7df42d984903868f6e593f6) by [Mona x Supercars](https://sketchfab.com/Car2022), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The model was aligned, stripped of textures and quantised for the web with `scripts/prepare-car-model.mjs`, and restyled as a blueprint hologram. The original file is not included.

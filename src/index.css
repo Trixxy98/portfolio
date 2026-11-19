@@ -79,3 +79,19 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Hero car callouts (BlueprintCar): the leader line and label run up-right
+   from the pinned dot, or up-left when the dot is near the right edge. */
+.callout-label {
+  left: 76px;
+}
+
+.callout[data-side='left'] .callout-leader {
+  transform: scaleX(-1);
+}
+
+.callout[data-side='left'] .callout-label {
+  left: auto;
+  right: 76px;
+  text-align: right;
+}

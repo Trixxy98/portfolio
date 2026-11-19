@@ -124,7 +124,7 @@ export default function Footer() {
           </div>
         </div>
         <p className="mt-6 text-xs text-subtle">
-          3D car: <a href="https://sketchfab.com/3d-models/f1-2026-concept-polygon-model-ea3bde709b1e4dc9b0ec8557d106ed42" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-paper-dim">F1 2026 concept by Qvist_designs</a>
+          3D car: <a href="https://sketchfab.com/3d-models/porsche-911-gt3-rs-992-23-99c74d8fa7df42d984903868f6e593f6" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-paper-dim">Porsche 911 GT3 RS (992) by Mona x Supercars</a>
           {' · '}<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-paper-dim">CC BY 4.0</a>
           {' · '}Optimised and restyled for this site.
         </p>
